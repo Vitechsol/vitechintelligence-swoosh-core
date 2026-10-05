@@ -1,0 +1,41 @@
+name: Swoosh Core CI
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772
+        with:
+          toolchain: 1.85.0
+          components: clippy,rustfmt
+          targets: wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6
+      - run: cargo fmt --all --check
+      - run: cargo clippy --locked --workspace --all-targets -- -D warnings
+      - run: cargo check --locked -p trust-kernel --no-default-features
+      - run: cargo check --locked -p trust-kernel --target wasm32-unknown-unknown --no-default-features
+      - run: cargo test --locked --workspace --all-targets
+      - run: cargo run --locked -p proof-pack --quiet
+      - run: cargo install cargo-audit --version 0.22.1 --locked
+      - run: cargo audit --deny warnings
+      - run: python scripts/check-rust-provenance.py
+
+  protocol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          python-version: '3.12'
+      - working-directory: protocol
+        run: python -m pip install .
+      - working-directory: protocol
+        run: python -m unittest discover -s tests -v
