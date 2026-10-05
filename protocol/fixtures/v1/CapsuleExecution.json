@@ -1,0 +1,15 @@
+{
+  "kind": "capsule_execution",
+  "version": "1.0",
+  "capsuleRef": "synthetic:method",
+  "ownerRef": "synthetic:owner",
+  "methodVersion": "1.0",
+  "contentDigest": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "purpose": "site-entry",
+  "inputSchemaRef": "synthetic:input-schema",
+  "outputSchemaRef": "synthetic:output-schema",
+  "providerRef": "synthetic:local-provider",
+  "dataLocation": "local",
+  "licenseEvidenceRef": "synthetic:license-receipt",
+  "executionId": "00000000-0000-4000-8000-000000000006"
+}
