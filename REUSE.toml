@@ -1,0 +1,11 @@
+version = 1
+
+[[annotations]]
+path = ["trust-kernel/**","trust-sdk/**","trust-console/**","proof-pack/**","Cargo.toml","Cargo.lock","rust-toolchain.toml","scripts/check-rust-provenance.py"]
+SPDX-FileCopyrightText = "2026 ViTech Intelligence Solutions"
+SPDX-License-Identifier = "MPL-2.0"
+
+[[annotations]]
+path = ["protocol/**","docs/**","README.md","SECURITY.md","CONTRIBUTING.md","NOTICE","LICENSE","SOURCE_PROVENANCE.json",".github/**","BRANCH_PROTECTION.md","RELEASE_CHECKLIST.md"]
+SPDX-FileCopyrightText = "2026 ViTech Intelligence Solutions"
+SPDX-License-Identifier = "Apache-2.0"
