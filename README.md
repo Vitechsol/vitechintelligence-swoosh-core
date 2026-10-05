@@ -73,6 +73,126 @@ Natural language, model output, classifier scores, observability findings and ri
 
 They are **not capabilities** and they are **not authorization decisions**.
 
+
+---
+
+## Swoosh technical architecture
+
+### Authority Plane — deterministic protected-action workflow
+
+```mermaid
+flowchart TB
+    HP["Human Principal / Trusted Workload<br/>Authenticated Intent Source"]
+    CC["Halibut OS — Command Center<br/>Deterministic Command Surface"]
+    AI["Structured Action Intent<br/>subject • tenant • role • task • purpose"]
+    AP["Swoosh — Authority Plane<br/>Canonical Rust Trust Kernel"]
+    PS["Policy + Trust State<br/>RBAC • delegation • resource • destination<br/>generation • epoch • TTL • revocation"]
+    DM{"Deterministic Decision"}
+    BM["Brokered Move<br/>Capability-Bound Effect Adapter"]
+    PE["Protected Effect<br/>API • network • file • model • device • robot"]
+    EP["Evidence Plane<br/>Receipt • audit event • effect evidence"]
+    DN["DENY Receipt<br/>Refusal Evidence"]
+    PF["Risk / DLP Prefilter<br/>classifier • RegEx • heuristic • vector signal"]
+
+    HP --> CC
+    CC --> AI
+    PF -. "signal only — never authority" .-> AI
+    AI --> AP
+    PS --> AP
+    AP --> DM
+    DM -->|"ALLOW"| BM
+    DM -->|"DENY"| DN
+    BM --> PE
+    PE --> EP
+    DN --> EP
+    EP --> CC
+```
+
+### Swoosh runtime authorization sequence
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant H as Human / Trusted Workload
+    participant C as Halibut OS Command Center
+    participant S as Swoosh Authority Plane
+    participant B as Broker
+    participant R as Protected Resource
+    participant E as Evidence Plane
+
+    H->>C: Submit governed intent
+    C->>C: Normalize structured Action Intent
+    C->>S: VERIFY(subject, tenant, role, task, purpose, resource, destination, TTL)
+    S->>S: Validate signature, policy, generation, epoch, expiry, revocation
+
+    alt Authorized
+        S-->>C: ALLOW + bounded capability
+        C->>B: Execute exact approved move
+        B->>R: Perform protected effect
+        R-->>B: Result / state transition
+        B->>E: Commit receipt + effect evidence
+        E-->>C: Verifiable execution evidence
+    else Denied
+        S-->>C: DENY + reason/evidence
+        C->>E: Persist refusal evidence
+    end
+```
+
+## Official ViTech environment and plane definitions
+
+The following terms are the canonical terminology used across the ViTech architecture. A **surface** is where an operator or subsystem interacts with the system. A **plane** is a functional architectural responsibility. An **environment** is the governed runtime context in which those planes and surfaces operate.
+
+| Official term | ViTech definition |
+|---|---|
+| **Command Center** | The governed operator-facing surface of **Halibut OS** where authenticated human intent enters the system, Goal Contracts are initiated, runtime state is reviewed, and governed work can be started, paused, escalated, or terminated. It is a command surface—not the authorization engine. |
+| **Control Plane** | The deterministic governance path that carries human intent through command lifecycle, role/task assignment, authority requests, execution control, intervention routing, and closure. **Halibut OS** owns the command/control lifecycle; **Swoosh** supplies deterministic authority inside that lifecycle. |
+| **Authority Plane** | The deterministic security plane implemented by **Swoosh Core**. It verifies identity, tenant, role/delegation, purpose, resource, destination, task generation, policy version, trust epoch, expiry, revocation, and effect binding before a protected move may occur. |
+| **Switchboard** | The runtime signal-routing and intervention surface used by **Halibut Observability Intelligence** in the broader architecture. It routes telemetry, drift, health, quality, dependency, and escalation signals back toward Halibut OS. The Switchboard may request intervention; it never creates authority. |
+| **Execution Plane** | The bounded runtime environment where authorized work is scheduled and performed. In the ViTech architecture this is primarily **ViRTOS + brokered adapters + the user-owned AI/tool/robot workforce**. Execution consumes authority; it does not mint it. |
+| **Intelligence Plane** | The reasoning environment containing **Halibut Intelligence** and approved user-selected models. It plans, decomposes, coordinates, verifies facts, and recommends actions. Intelligence may request authority but does not grant itself authority. |
+| **Evidence Plane** | The proof/audit environment that records what was requested, authorized or denied, executed, observed, and committed. It supports receipts, effect evidence, audit chains, completion verification, and later accountability. |
+| **Broker** | The deterministic adapter/gateway that converts an authorized capability into the exact protected effect. It is the enforcement point between an authorization decision and an external resource. |
+| **Protected Effect** | Any state-changing or trust-boundary-crossing action: network egress, API invocation, file mutation, cloud-model call, device command, database write, robot actuation, or other governed resource operation. |
+| **Trust Boundary** | The architectural boundary beyond which identity, authority, data scope, or effect scope cannot be assumed. Crossing it requires explicit verification and brokered enforcement. |
+| **Prove** | The post-effect stage that produces verifiable evidence showing what was allowed or denied, what actually happened, and whether the realized effect matched the authorized intent. |
+
+### Branding rule
+
+The ViTech architecture uses these terms deliberately:
+
+```text
+COMMAND CENTER
+    receives and governs human intent
+
+CONTROL PLANE
+    controls the lifecycle of governed work
+
+AUTHORITY PLANE
+    determines whether protected action is allowed
+
+INTELLIGENCE PLANE
+    reasons, plans, coordinates, and verifies
+
+EXECUTION PLANE
+    performs bounded work
+
+SWITCHBOARD
+    routes runtime signals and intervention intents
+
+EVIDENCE PLANE
+    proves what actually happened
+```
+
+> **No plane may silently absorb the authority of another plane.**
+
+In particular:
+
+- Intelligence cannot become Authority.
+- Observability cannot become Authority.
+- Execution cannot create Authority.
+- Enterprise extensions cannot override a canonical Swoosh `DENY`.
+
+
 ---
 
 ## Core security invariant
