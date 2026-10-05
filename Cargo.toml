@@ -1,0 +1,46 @@
+[workspace]
+members = [
+  "trust-kernel",
+  "trust-sdk",
+  "trust-console",
+  "proof-pack",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+publish = false
+authors = ["ViTech Intelligence"]
+repository = "https://github.com/vitechintelligence/vitechintelligence-swoosh-core"
+
+[workspace.dependencies]
+clap = { version = "4.5", features = ["derive"] }
+ed25519-dalek = { version = "2.1.1", default-features = false, features = ["alloc"] }
+fs2 = "0.4.3"
+hex = "0.4.3"
+postcard = { version = "1.1", default-features = false, features = ["alloc"] }
+proptest = "1.6"
+serde = { version = "1.0", default-features = false, features = ["alloc", "derive"] }
+serde_json = "1.0"
+sha2 = { version = "0.10.8", default-features = false }
+tempfile = "3.14"
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+overflow-checks = true
+panic = "abort"
+strip = "symbols"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+dbg_macro = "deny"
+expect_used = "deny"
+panic = "deny"
+todo = "deny"
+unimplemented = "deny"
+unwrap_used = "deny"
