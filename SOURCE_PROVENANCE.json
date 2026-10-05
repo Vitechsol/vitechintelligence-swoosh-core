@@ -3,7 +3,7 @@
   "release": "v0.1.0-preview",
   "status": "private-staging",
   "targetRepository": "vitechintelligence/vitechintelligence-swoosh-core",
-  "verifiedAgainstCleanCommit": "d454dc31a95dd2899d2338c8b491ffbb2377f631",
+  "verifiedAgainstCleanCommit": "73ba602b9f9a0a8cbedeb3c93227a6722522d0a8",
   "generatedDate": "2026-10-06",
   "note": "Exact provenance is recorded for extracted source assets. Clean-repository-authored governance/release files are listed separately because SOURCE_PROVENANCE.json cannot self-hash without recursion.",
   "extractedFiles": [
@@ -23,7 +23,8 @@
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "Cargo.toml",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "4c4fa48363ae29690ed3442edd77cc4d47189335"
+      "sourceBlobSha": "4c4fa48363ae29690ed3442edd77cc4d47189335",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
     },
     {
       "path": "docs/decisions/ADR-0007-CANONICAL-SIGNED-CLAIM-AND-TRUSTPACK-PROFILE.md",
@@ -100,11 +101,12 @@
     {
       "path": "proof-pack/Cargo.toml",
       "cleanBlobSha": "3c03af703bf4dd36cbf9272cf6999370b480e87a",
-      "extraction": "exact",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "proof-pack/Cargo.toml",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "3c03af703bf4dd36cbf9272cf6999370b480e87a"
+      "sourceBlobSha": "3c03af703bf4dd36cbf9272cf6999370b480e87a",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
     },
     {
       "path": "proof-pack/examples/halibut_fixture.rs",
@@ -289,11 +291,12 @@
     {
       "path": "protocol/pyproject.toml",
       "cleanBlobSha": "eaef76bc593458dea375ad14fb2a65f34445fa4b",
-      "extraction": "exact",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
       "sourcePath": "pyproject.toml",
       "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
-      "sourceBlobSha": "eaef76bc593458dea375ad14fb2a65f34445fa4b"
+      "sourceBlobSha": "eaef76bc593458dea375ad14fb2a65f34445fa4b",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
     },
     {
       "path": "protocol/swoosh_contracts/__init__.py",
@@ -343,11 +346,12 @@
     {
       "path": "trust-console/Cargo.toml",
       "cleanBlobSha": "e4614c5a0ee8ab7bc359402a62f635b746846d94",
-      "extraction": "exact",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-console/Cargo.toml",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "e4614c5a0ee8ab7bc359402a62f635b746846d94"
+      "sourceBlobSha": "e4614c5a0ee8ab7bc359402a62f635b746846d94",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
     },
     {
       "path": "trust-console/src/main.rs",
@@ -370,11 +374,12 @@
     {
       "path": "trust-kernel/Cargo.toml",
       "cleanBlobSha": "ecc3e85d2feedd836ba162fe96b2ae9e4d96edc5",
-      "extraction": "exact",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-kernel/Cargo.toml",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "ecc3e85d2feedd836ba162fe96b2ae9e4d96edc5"
+      "sourceBlobSha": "ecc3e85d2feedd836ba162fe96b2ae9e4d96edc5",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
     },
     {
       "path": "trust-kernel/src/action.rs",
@@ -442,11 +447,12 @@
     {
       "path": "trust-sdk/Cargo.toml",
       "cleanBlobSha": "9ff815c898e477f36a9bd9a2cb01e58ce1f997ad",
-      "extraction": "exact",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-sdk/Cargo.toml",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "9ff815c898e477f36a9bd9a2cb01e58ce1f997ad"
+      "sourceBlobSha": "9ff815c898e477f36a9bd9a2cb01e58ce1f997ad",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
     },
     {
       "path": "trust-sdk/src/lib.rs",
@@ -472,5 +478,6 @@
     "SOURCE_PROVENANCE.json",
     "scripts/check-license-coverage.py",
     "scripts/generate_sbom.py"
-  ]
+  ],
+  "packageMetadataNote": "Rust crates remain publish=false for the preview. Package manifests now advertise MPL-2.0; the protocol Python package advertises Apache-2.0."
 }
