@@ -1,0 +1,16 @@
+[package]
+name = "trust-sdk"
+description = "Thin host interface for the canonical SWOOSH trust kernel"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[dependencies]
+serde.workspace = true
+trust-kernel = { path = "../trust-kernel" }
+
+[lints]
+workspace = true
