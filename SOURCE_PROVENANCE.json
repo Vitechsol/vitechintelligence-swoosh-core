@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "release": "v0.1.0-preview",
+  "status": "private-staging",
+  "sourceRepositories": [
+    {
+      "role": "canonical-rust-authority",
+      "repository": "vitechintelligence/swooshbyvitech",
+      "commit": "be96771278ac205ad90518744c43f0850963f462"
+    },
+    {
+      "role": "public-protocol-contracts",
+      "repository": "vitechintelligence/Swoosh-Intelligence-",
+      "commit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d"
+    },
+    {
+      "role": "license-texts",
+      "repository": "vitechintelligence/Halibut-Intelligence-OS",
+      "commit": "e72aa0cb2c6a7f41f680b8b525caea90bac94b72"
+    }
+  ],
+  "included": [
+    "Cargo.toml",
+    "Cargo.lock",
+    "rust-toolchain.toml",
+    "trust-kernel/**",
+    "trust-sdk/**",
+    "trust-console/**",
+    "proof-pack/**",
+    "scripts/check-rust-provenance.py",
+    "docs/security/**",
+    "docs/testing/PROOF_PACK.md",
+    "docs/decisions/ADR-0007*",
+    "docs/decisions/ADR-0008*",
+    "protocol/**"
+  ],
+  "excluded": [
+    "web console",
+    "Supabase",
+    "organization control plane",
+    "production signer custody",
+    "protected Capsule content",
+    "customer/institutional data"
+  ]
+}
