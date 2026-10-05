@@ -1,0 +1,16 @@
+{
+  "kind": "audit_event",
+  "version": "1.0",
+  "eventId": "00000000-0000-4000-8000-000000000005",
+  "occurredAt": "2026-10-05T10:00:00Z",
+  "source": "halibut.local",
+  "tenantId": "industrial.demo",
+  "taskId": "entry-1",
+  "generation": 1,
+  "eventType": "effect_committed",
+  "evidenceDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "reasonCode": "OK",
+  "previousDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "recordDigest": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "chainProfile": "halibut.local.audit.v1"
+}
