@@ -1,7 +1,6 @@
 name: Usage question
 description: Ask how to build, test, integrate, or understand Swoosh Core
 title: "[Question]: "
-labels: ["question"]
 body:
   - type: markdown
     attributes:
