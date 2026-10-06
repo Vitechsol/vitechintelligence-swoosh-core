@@ -1,0 +1,31 @@
+name: Usage question
+description: Ask how to build, test, integrate, or understand Swoosh Core
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for public technical questions. Security vulnerabilities belong in SECURITY.md.
+  - type: textarea
+    id: goal
+    attributes:
+      label: What are you trying to do?
+    validations:
+      required: true
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What have you tried?
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Rust/Python version, commit/tag, and relevant commands.
+  - type: checkboxes
+    id: safe
+    attributes:
+      label: Safety
+      options:
+        - label: This question contains no credentials, secrets, customer data, or protected ViTech commercial content.
+          required: true
