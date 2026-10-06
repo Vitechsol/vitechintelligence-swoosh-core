@@ -38,7 +38,7 @@ Standard Ed25519 signs these bytes. Wire representation is Rust `SignedActionV2`
 
 `swoosh.action.v3.native` is an additive profile over the existing trust kernel. V2 remains supported for compatibility.
 
-V3 cryptographically binds an authenticated **role** into the action envelope in addition to the existing workflow, task, generation, purpose, destination, effect digest, policy version and trust epoch.
+V3 cryptographically binds an authenticated **role** and a **cognitive-profile digest** into the action envelope in addition to the existing workflow, task, generation, purpose, destination, effect digest, policy version and trust epoch.
 
 The trusted host supplies:
 
@@ -51,7 +51,7 @@ The verifier requires all of those values to match the signed envelope exactly. 
 
 This turns role identity into a hard authorization boundary rather than a soft prompt convention. A model cannot promote itself from `site-entry-worker` to `site-admin`, and a copied valid action cannot be replayed under a different role without failing signature/scope verification.
 
-The profile deliberately binds only the **role identifier**, not proprietary role methodology or system-prompt text. Halibut may separately bind a versioned cognitive-profile digest while keeping protected Intelligence Capsule content outside the public protocol.
+The profile binds the **role identifier** plus a digest of the approved cognitive profile, never proprietary methodology or system-prompt text itself. This lets Halibut prove which versioned methodology envelope governed a worker while keeping protected Intelligence Capsule content outside the public protocol.
 
 All fixtures are synthetic format material. Hashes and references do not prove real permissions, approvals, Capsule licenses or deployment identity.
 
