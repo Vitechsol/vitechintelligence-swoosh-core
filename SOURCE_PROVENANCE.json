@@ -116,7 +116,7 @@
       "sourcePath": "proof-pack/examples/halibut_fixture.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
       "sourceBlobSha": "5355d5abfbdac5785e88fe467f521f69ffa53052",
-      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
+      "note": "Public-preview hardening adds the additive role-bound Action V3 profile and Cognitive Control Plane binding while preserving V2 compatibility."
     },
     {
       "path": "proof-pack/src/lib.rs",
@@ -180,7 +180,7 @@
       "sourcePath": "contracts/v1/README.md",
       "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
       "sourceBlobSha": "1f54288a7e977d63f31a92019e44ff950d7ee273",
-      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
+      "note": "Public-preview hardening adds the additive role-bound Action V3 profile and Cognitive Control Plane binding while preserving V2 compatibility."
     },
     {
       "path": "protocol/examples/async_reference_monitor.py",
@@ -363,7 +363,7 @@
       "sourcePath": "trust-console/src/main.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
       "sourceBlobSha": "a038669b3fcc782264284233bf424fecd01da648",
-      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
+      "note": "Public-preview hardening adds the additive role-bound Action V3 profile and Cognitive Control Plane binding while preserving V2 compatibility."
     },
     {
       "path": "trust-console/tests/console_e2e.rs",
@@ -386,13 +386,13 @@
     },
     {
       "path": "trust-kernel/src/action.rs",
-      "cleanBlobSha": "ac5c7c7653263d95eb5a9a1a7a017786c7bec3e0",
+      "cleanBlobSha": "d9d2b17cf2f7c6efc7c44ebbcbd4cad45c35adc6",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-kernel/src/action.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
       "sourceBlobSha": "418602de1ea0ff3f994425d1e39b02b013edcd10",
-      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
+      "note": "Public-preview hardening adds the additive role-bound Action V3 profile and Cognitive Control Plane binding while preserving V2 compatibility."
     },
     {
       "path": "trust-kernel/src/canonical.rs",
@@ -429,7 +429,7 @@
       "sourcePath": "trust-kernel/src/lib.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
       "sourceBlobSha": "012ffc116b2b0425b7892eb4853fea87ae7237e5",
-      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
+      "note": "Public-preview hardening adds the additive role-bound Action V3 profile and Cognitive Control Plane binding while preserving V2 compatibility."
     },
     {
       "path": "trust-kernel/src/state.rs",
@@ -467,7 +467,7 @@
       "sourcePath": "trust-sdk/src/lib.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
       "sourceBlobSha": "fba7b74d8b2fc975a669177d5d5b9f212f8eed0a",
-      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
+      "note": "Public-preview hardening adds the additive role-bound Action V3 profile and Cognitive Control Plane binding while preserving V2 compatibility."
     }
   ],
   "cleanRepositoryAuthoredFiles": [
