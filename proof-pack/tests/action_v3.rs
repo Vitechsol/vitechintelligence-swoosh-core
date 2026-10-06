@@ -8,7 +8,8 @@ use trust_kernel::{
 };
 use trust_sdk::InstalledTrustContext;
 
-fn signed_action() -> Result<(proof_pack::Fixture, SignedActionV3, ActionRequestV3), Box<dyn Error>> {
+fn signed_action() -> Result<(proof_pack::Fixture, SignedActionV3, ActionRequestV3), Box<dyn Error>>
+{
     let fixture = fixture()?;
     let binding = ActionBindingV3 {
         workflow_id: "contractor-access".into(),
@@ -42,7 +43,8 @@ fn signed_action() -> Result<(proof_pack::Fixture, SignedActionV3, ActionRequest
 }
 
 #[test]
-fn role_bound_action_v3_authorizes_only_matching_authenticated_role() -> Result<(), Box<dyn Error>> {
+fn role_bound_action_v3_authorizes_only_matching_authenticated_role() -> Result<(), Box<dyn Error>>
+{
     let (fixture, action, request) = signed_action()?;
     let context = InstalledTrustContext::install_at(
         &fixture.pack_bytes,
@@ -78,15 +80,13 @@ fn tampered_signed_role_cannot_reuse_valid_signature() -> Result<(), Box<dyn Err
     action.binding.role_id = "site-admin".into();
     request.binding.role_id = "site-admin".into();
     request.authenticated_role = "site-admin".into();
-    assert!(
-        evaluate_action_v3(
-            &encode_action_v3(&action)?,
-            &fixture.pack_bytes,
-            EVALUATION_TIME,
-            &request,
-        )
-        .is_err()
-    );
+    assert!(evaluate_action_v3(
+        &encode_action_v3(&action)?,
+        &fixture.pack_bytes,
+        EVALUATION_TIME,
+        &request,
+    )
+    .is_err());
     Ok(())
 }
 
@@ -115,7 +115,8 @@ fn invalid_role_identifier_fails_closed() -> Result<(), Box<dyn Error>> {
 }
 
 #[test]
-fn cognitive_profile_digest_is_part_of_the_signed_authority_context() -> Result<(), Box<dyn Error>> {
+fn cognitive_profile_digest_is_part_of_the_signed_authority_context() -> Result<(), Box<dyn Error>>
+{
     let (fixture, action, mut request) = signed_action()?;
     request.binding.cognitive_profile_digest = [77; 32];
     assert_eq!(
