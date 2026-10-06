@@ -15,6 +15,7 @@ fn signed_action() -> Result<(proof_pack::Fixture, SignedActionV3, ActionRequest
         task_id: "entry-1".into(),
         generation: 1,
         role_id: "site-entry-worker".into(),
+        cognitive_profile_digest: [31; 32],
         purpose: "site-entry".into(),
         destination: "local:factory-a".into(),
         effect_digest: [23; 32],
@@ -110,5 +111,21 @@ fn invalid_role_identifier_fails_closed() -> Result<(), Box<dyn Error>> {
     let (_, mut action, _) = signed_action()?;
     action.binding.role_id = "bad\nrole".into();
     assert_eq!(encode_action_v3(&action), Err(ActionError::InvalidBinding));
+    Ok(())
+}
+
+#[test]
+fn cognitive_profile_digest_is_part_of_the_signed_authority_context() -> Result<(), Box<dyn Error>> {
+    let (fixture, action, mut request) = signed_action()?;
+    request.binding.cognitive_profile_digest = [77; 32];
+    assert_eq!(
+        evaluate_action_v3(
+            &encode_action_v3(&action)?,
+            &fixture.pack_bytes,
+            EVALUATION_TIME,
+            &request,
+        ),
+        Err(ActionError::ScopeMismatch)
+    );
     Ok(())
 }
