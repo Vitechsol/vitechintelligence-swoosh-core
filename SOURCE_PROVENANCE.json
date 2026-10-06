@@ -110,7 +110,7 @@
     },
     {
       "path": "proof-pack/examples/halibut_fixture.rs",
-      "cleanBlobSha": "ccab5cfc6f28d7d8c39c37ab226a6b3231c27c72",
+      "cleanBlobSha": "1a9cbda0c0fc2c33613d7641be44af45ba9e6948",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "proof-pack/examples/halibut_fixture.rs",
@@ -357,7 +357,7 @@
     },
     {
       "path": "trust-console/src/main.rs",
-      "cleanBlobSha": "47f29dc8553c0fe3160d7c0aed43ec191b8da12c",
+      "cleanBlobSha": "c1d8bebaeba8109e7ebf247a17e638b02e187e02",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-console/src/main.rs",
@@ -386,7 +386,7 @@
     },
     {
       "path": "trust-kernel/src/action.rs",
-      "cleanBlobSha": "d9d2b17cf2f7c6efc7c44ebbcbd4cad45c35adc6",
+      "cleanBlobSha": "d1d55a70ad38312c7865011532c714535dd7e803",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-kernel/src/action.rs",
