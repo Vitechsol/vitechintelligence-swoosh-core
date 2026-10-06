@@ -7,7 +7,9 @@ use std::{
     path::PathBuf,
     time::{SystemTime, UNIX_EPOCH},
 };
-use trust_kernel::{encode_action_v3, ActionBindingV3, ActionRequestV3, SignedActionV3, ACTION_PROFILE_V3_VERSION};
+use trust_kernel::{
+    encode_action_v3, ActionBindingV3, ActionRequestV3, SignedActionV3, ACTION_PROFILE_V3_VERSION,
+};
 fn main() -> Result<(), Box<dyn Error>> {
     let directory = PathBuf::from(std::env::args().nth(1).ok_or("output directory required")?);
     fs::create_dir_all(&directory)?;
