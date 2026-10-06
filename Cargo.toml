@@ -13,7 +13,7 @@ edition = "2021"
 rust-version = "1.85"
 publish = false
 authors = ["ViTech Intelligence"]
-repository = "https://github.com/vitechintelligence/vitechintelligence-swoosh-core"
+repository = "https://github.com/Vitechsol/vitechintelligence-swoosh-core"
 license = "MPL-2.0"
 
 [workspace.dependencies]
