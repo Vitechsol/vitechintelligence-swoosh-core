@@ -7,25 +7,26 @@ use std::{
     path::PathBuf,
     time::{SystemTime, UNIX_EPOCH},
 };
-use trust_kernel::{encode_action_v2, ActionBindingV2, ActionRequestV2, SignedActionV2};
+use trust_kernel::{encode_action_v3, ActionBindingV3, ActionRequestV3, SignedActionV3, ACTION_PROFILE_V3_VERSION};
 fn main() -> Result<(), Box<dyn Error>> {
     let directory = PathBuf::from(std::env::args().nth(1).ok_or("output directory required")?);
     fs::create_dir_all(&directory)?;
     let now = SystemTime::now().duration_since(UNIX_EPOCH)?.as_secs();
     let fixture = proof_pack::fixture_at(now)?;
     let effect = b"{\"entry\":\"factory-a\",\"subject\":\"synthetic-contractor\"}";
-    let binding = ActionBindingV2 {
+    let binding = ActionBindingV3 {
         workflow_id: "contractor-access".into(),
         task_id: "entry-1".into(),
         generation: 1,
+        role_id: "site-entry-worker".into(),
         purpose: "site-entry".into(),
         destination: "local:factory-a".into(),
         effect_digest: Sha256::digest(effect).into(),
         policy_version: 1,
         trust_epoch: 1,
     };
-    let mut action = SignedActionV2 {
-        profile_version: 2,
+    let mut action = SignedActionV3 {
+        profile_version: ACTION_PROFILE_V3_VERSION,
         authority: fixture.signed_claim.clone(),
         binding: binding.clone(),
         signature: [0; 64],
@@ -33,13 +34,14 @@ fn main() -> Result<(), Box<dyn Error>> {
     action.signature = SigningKey::from_bytes(&[7; 32])
         .sign(&action.signing_bytes()?)
         .to_bytes();
-    let request = ActionRequestV2 {
+    let request = ActionRequestV3 {
         authenticated_subject: action.authority.claim.subject_commitment,
+        authenticated_role: "site-entry-worker".into(),
         action: "enter-site".into(),
         resource: "factory-a".into(),
         binding,
     };
-    fs::write(directory.join("action.bin"), encode_action_v2(&action)?)?;
+    fs::write(directory.join("action.bin"), encode_action_v3(&action)?)?;
     fs::write(directory.join("current.tpack"), fixture.pack_bytes)?;
     fs::write(
         directory.join("checkpoint.txt"),
