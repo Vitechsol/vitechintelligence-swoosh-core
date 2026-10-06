@@ -288,7 +288,7 @@ fn run(cli: Cli) -> Result<(), ConsoleError> {
             let receipt = context.evaluate_action_at(&bytes, &request, now)?;
             println!("{}", serde_json::to_string(&receipt)?);
             Ok(())
-        },
+        }
         Command::EvaluateActionV3 {
             envelope,
             trust_pack,
