@@ -12,7 +12,7 @@
 | Goal | Route |
 |---|---|
 | **Try Swoosh** | [Quick start](#quick-start) |
-| **Understand the authority architecture** | [Technical architecture](#swoosh-technical-architecture) · [Threat model](docs/security/THREAT_MODEL.md) · [Architecture decisions](docs/decisions/) |
+| **Understand the authority architecture** | [Technical architecture](#swoosh-technical-architecture) · [V-D-M-P boundary](docs/decisions/ADR-0009-VERIFY-DECIDE-MOVE-PROVE-AND-COGNITIVE-ESCALATION.md) · [Threat model](docs/security/THREAT_MODEL.md) · [Architecture decisions](docs/decisions/) |
 | **Run security evidence** | [Proof Pack](docs/testing/PROOF_PACK.md) · `proof-pack/` |
 | **Integrate the protocol** | [Protocol contracts](protocol/contracts/v1/README.md) · `protocol/` |
 | **See examples** | `protocol/examples/` · `proof-pack/examples/` |
@@ -120,6 +120,13 @@ They are **not capabilities** and they are **not authorization decisions**.
 
 ## Swoosh technical architecture
 
+The canonical authority doctrine is:
+
+> **VERIFY -> DECIDE -> MOVE -> PROVE**
+
+`DECIDE` is deterministic policy evaluation, not LLM reasoning. When a compatible Halibut runtime needs semantic interpretation it may request cognitive review from Halibut Intelligence, but every protected effect must return through Swoosh. **Beyond Swoosh's cognition -> cognitive escalation. Beyond Swoosh's authority -> DENY.** See [ADR-0009](docs/decisions/ADR-0009-VERIFY-DECIDE-MOVE-PROVE-AND-COGNITIVE-ESCALATION.md).
+
+
 ### Authority Plane — deterministic protected-action workflow
 
 ```mermaid
@@ -189,7 +196,7 @@ The following terms are the canonical terminology used across the ViTech archite
 | **Command Center** | The governed operator-facing surface of **Halibut OS** where authenticated human intent enters the system, Goal Contracts are initiated, runtime state is reviewed, and governed work can be started, paused, escalated, or terminated. It is a command surface—not the authorization engine. |
 | **Control Plane** | The deterministic governance path that carries human intent through command lifecycle, role/task assignment, authority requests, execution control, intervention routing, and closure. **Halibut OS** owns the command/control lifecycle; **Swoosh** supplies deterministic authority inside that lifecycle. |
 | **Authority Plane** | The deterministic security plane implemented by **Swoosh Core**. It verifies identity, tenant, role/delegation, purpose, resource, destination, task generation, policy version, trust epoch, expiry, revocation, and effect binding before a protected move may occur. |
-| **Switchboard** | The runtime signal-routing and intervention surface used by **Halibut Observability Intelligence** in the broader architecture. It routes telemetry, drift, health, quality, dependency, and escalation signals back toward Halibut OS. The Switchboard may request intervention; it never creates authority. |
+| **Main Switchboard** | The deterministic human-control and runtime-routing surface owned by **Halibut OS** in the broader architecture. It connects RBAC, network/connectors, workers, Swoosh, observability, and the controlled Intelligence Gateway. Observability feeds the Switchboard; neither the Switchboard nor observability may mint Swoosh authority. |
 | **Execution Plane** | The bounded runtime environment where authorized work is scheduled and performed. In the ViTech architecture this is primarily **ViRTOS + brokered adapters + the user-owned AI/tool/robot workforce**. Execution consumes authority; it does not mint it. |
 | **Intelligence Plane** | The reasoning environment containing **Halibut Intelligence** and approved user-selected models. It plans, decomposes, coordinates, verifies facts, and recommends actions. Intelligence may request authority but does not grant itself authority. |
 | **Evidence Plane** | The proof/audit environment that records what was requested, authorized or denied, executed, observed, and committed. It supports receipts, effect evidence, audit chains, completion verification, and later accountability. |
