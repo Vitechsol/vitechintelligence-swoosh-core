@@ -1,0 +1,56 @@
+name: Feature or architecture proposal
+description: Propose an improvement to the open Swoosh Core
+title: "[Proposal]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Significant authority, protocol, trust, or interoperability changes should be discussed before implementation.
+        The open core must remain deterministic, fail-closed, and separate intelligence from authority.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What developer, interoperability, security, or operational problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the behavior or contract you want to add/change.
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Intended scope
+      options:
+        - authority kernel
+        - SDK / host interface
+        - protocol / schema
+        - conformance / Proof Pack
+        - documentation
+        - CI / release tooling
+        - interoperability
+        - unsure
+    validations:
+      required: true
+  - type: textarea
+    id: invariants
+    attributes:
+      label: Invariants and compatibility
+      description: Explain effects on deterministic ALLOW/DENY, fail-closed behavior, backwards compatibility, and existing security assumptions.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Open-core boundary
+      options:
+        - label: This proposal does not require protected Intelligence Capsule content, customer data, production signer custody, or private enterprise control-plane implementation.
+          required: true

@@ -479,10 +479,17 @@
     "SECURITY.md",
     "SOURCE_PROVENANCE.json",
     "scripts/check-license-coverage.py",
-    "scripts/generate_sbom.py"
+    "scripts/generate_sbom.py",
+    ".github/ISSUE_TEMPLATE/bug_report.yml",
+    ".github/ISSUE_TEMPLATE/feature_request.yml",
+    ".github/ISSUE_TEMPLATE/question.yml",
+    ".github/ISSUE_TEMPLATE/config.yml",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    "SUPPORT.md"
   ],
   "packageMetadataNote": "Rust crates remain publish=false for the preview. Package manifests now advertise MPL-2.0; the protocol Python package advertises Apache-2.0.",
   "migrationNote": "Release repository ownership moved to the Vitechsol organization. Historical sourceRepository entries intentionally retain their original repository identities for provenance.",
   "recognitionNote": "CITATION.cff and NOTICE identify ViTech Intelligence Solutions as the originating project organization and provide machine-readable citation plus applicable redistribution attribution.",
-  "publicationNote": "README publication language, quick start, citation metadata, attribution notice, and Code of Conduct are clean-repository-authored public-release documentation."
+  "publicationNote": "README publication language, quick start, citation metadata, attribution notice, and Code of Conduct are clean-repository-authored public-release documentation.",
+  "communityLaunchNote": "Structured issue forms, pull-request checklist, support routing, and proposal-first contribution guidance were added for public community launch."
 }

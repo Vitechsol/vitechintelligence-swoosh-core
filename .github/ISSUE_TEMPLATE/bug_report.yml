@@ -1,0 +1,65 @@
+name: Bug report
+description: Report a reproducible defect in Swoosh Core
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve ViTech Swoosh Core.
+        Do not disclose secrets, signing material, customer data, or active vulnerabilities here. Follow SECURITY.md for security reports.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: v0.1.0-preview or commit SHA
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - trust-kernel
+        - trust-sdk
+        - trust-console
+        - proof-pack
+        - protocol
+        - documentation
+        - CI / release tooling
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed behavior
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include the smallest safe reproduction, commands, fixtures, or test case.
+      render: shell
+  - type: textarea
+    id: invariant
+    attributes:
+      label: Security / authority impact
+      description: If relevant, explain whether this could affect ALLOW/DENY behavior, expiry, revocation, generation binding, destination binding, effect binding, or fail-closed behavior.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues first.
+          required: true
+        - label: I removed secrets, private keys, customer data, and protected commercial content.
+          required: true
