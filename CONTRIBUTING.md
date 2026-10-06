@@ -37,3 +37,11 @@ python -m venv .venv
 - Security vulnerabilities belong in the process described by `SECURITY.md`, not public issue threads.
 
 By participating, contributors agree to follow `CODE_OF_CONDUCT.md`.
+
+## Proposal-first changes
+
+Before coding a substantial change to authority semantics, protocol contracts, cryptographic/trust assumptions, or interoperability behavior, open a **Feature or architecture proposal** issue first.
+
+Maintainers may require an Architecture Decision Record (ADR) before implementation. This keeps high-impact changes reviewable and prevents contributors from spending time on designs that conflict with Swoosh's security invariants or open/commercial boundary.
+
+Small bug fixes, tests, documentation corrections, and clearly scoped maintenance work can proceed through the normal pull-request workflow.
