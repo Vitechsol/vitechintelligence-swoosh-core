@@ -33,6 +33,26 @@ Standard Ed25519 signs these bytes. Wire representation is Rust `SignedActionV2`
 
 [The fixed signing vector](../../fixtures/native-v2/signing-vector.json) is independently assembled with explicit lengths and endian encoding in protocol tests. The canonical Rust test pins the same digest. Existing v1 receipt/checkpoint golden vectors remain unchanged. Native execution is tested; Wasm compilation alone is insufficient to claim a supported Wasm integration.
 
+
+### Role-bound native action profile (v3)
+
+`swoosh.action.v3.native` is an additive profile over the existing trust kernel. V2 remains supported for compatibility.
+
+V3 cryptographically binds an authenticated **role** and a **cognitive-profile digest** into the action envelope in addition to the existing workflow, task, generation, purpose, destination, effect digest, policy version and trust epoch.
+
+The trusted host supplies:
+
+- authenticated subject;
+- authenticated role;
+- expected action/resource;
+- the exact role-bound action binding.
+
+The verifier requires all of those values to match the signed envelope exactly. Worker/model text, prompt content, tool proposals and observability signals are never accepted as role or authority inputs.
+
+This turns role identity into a hard authorization boundary rather than a soft prompt convention. A model cannot promote itself from `site-entry-worker` to `site-admin`, and a copied valid action cannot be replayed under a different role without failing signature/scope verification.
+
+The profile binds the **role identifier** plus a digest of the approved cognitive profile, never proprietary methodology or system-prompt text itself. This lets Halibut prove which versioned methodology envelope governed a worker while keeping protected Intelligence Capsule content outside the public protocol.
+
 All fixtures are synthetic format material. Hashes and references do not prove real permissions, approvals, Capsule licenses or deployment identity.
 
 ## Run

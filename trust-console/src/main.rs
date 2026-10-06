@@ -46,6 +46,20 @@ enum Command {
         #[arg(long = "minimum-epoch")]
         minimum_epoch: u64,
     },
+    /// Evaluate the additive v3 role-bound action profile against trusted host RBAC context.
+    EvaluateActionV3 {
+        #[arg(long)]
+        envelope: PathBuf,
+        #[arg(long = "trust-pack")]
+        trust_pack: PathBuf,
+        /// Trusted host JSON; subject and role must come from authenticated host state, never model output.
+        #[arg(long = "host-request")]
+        host_request: PathBuf,
+        #[arg(long = "expected-checkpoint")]
+        expected_checkpoint: String,
+        #[arg(long = "minimum-epoch")]
+        minimum_epoch: u64,
+    },
     /// Evaluate a raw canonical claim against an installed TrustPack.
     Evaluate {
         /// Claim file, or '-' to read the raw claim from standard input.
@@ -272,6 +286,28 @@ fn run(cli: Cli) -> Result<(), ConsoleError> {
                 serde_json::from_slice(&read_limited(&host_request, MAX_ACTION_WIRE_BYTES)?)?;
             let bytes = read_limited(&envelope, MAX_ACTION_WIRE_BYTES)?;
             let receipt = context.evaluate_action_at(&bytes, &request, now)?;
+            println!("{}", serde_json::to_string(&receipt)?);
+            Ok(())
+        }
+        Command::EvaluateActionV3 {
+            envelope,
+            trust_pack,
+            host_request,
+            expected_checkpoint,
+            minimum_epoch,
+        } => {
+            let now = std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .map_err(|_| SdkError::ClockBeforeUnixEpoch)?
+                .as_secs();
+            let pack = read_limited(&trust_pack, MAX_TRUST_PACK_WIRE_BYTES)?;
+            let checkpoint = parse_checkpoint(&expected_checkpoint)?;
+            let mut context = InstalledTrustContext::install_at(&pack, &checkpoint, now)?;
+            context.note_authoritative_epoch(minimum_epoch);
+            let request: trust_sdk::ActionRequestV3 =
+                serde_json::from_slice(&read_limited(&host_request, MAX_ACTION_WIRE_BYTES)?)?;
+            let bytes = read_limited(&envelope, MAX_ACTION_WIRE_BYTES)?;
+            let receipt = context.evaluate_action_v3_at(&bytes, &request, now)?;
             println!("{}", serde_json::to_string(&receipt)?);
             Ok(())
         }

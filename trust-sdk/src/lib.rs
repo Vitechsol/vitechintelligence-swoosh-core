@@ -4,9 +4,9 @@ use core::fmt;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 pub use trust_kernel::{
-    ActionReceiptV2, ActionRequestV2, Decision, DecisionReason, DecisionReceipt,
-    FreshnessAssurance, TrustError, TrustPackMetadata, MAX_ACTION_WIRE_BYTES, MAX_CLAIM_WIRE_BYTES,
-    MAX_TRUST_PACK_WIRE_BYTES,
+    ActionReceiptV2, ActionReceiptV3, ActionRequestV2, ActionRequestV3, Decision, DecisionReason,
+    DecisionReceipt, FreshnessAssurance, TrustError, TrustPackMetadata, MAX_ACTION_WIRE_BYTES,
+    MAX_CLAIM_WIRE_BYTES, MAX_TRUST_PACK_WIRE_BYTES,
 };
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -82,6 +82,18 @@ impl InstalledTrustContext {
             return Err(SdkError::NewerEpochRequired);
         }
         trust_kernel::evaluate_action_v2(action, &self.pack, now, request).map_err(SdkError::Action)
+    }
+
+    pub fn evaluate_action_v3_at(
+        &self,
+        action: &[u8],
+        request: &trust_kernel::ActionRequestV3,
+        now: u64,
+    ) -> Result<trust_kernel::ActionReceiptV3, SdkError> {
+        if self.metadata.trust_epoch < self.minimum_epoch {
+            return Err(SdkError::NewerEpochRequired);
+        }
+        trust_kernel::evaluate_action_v3(action, &self.pack, now, request).map_err(SdkError::Action)
     }
 }
 

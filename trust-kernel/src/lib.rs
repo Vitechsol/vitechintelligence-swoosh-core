@@ -11,8 +11,10 @@ mod state;
 mod types;
 
 pub use action::{
-    encode_action_v2, evaluate_action_v2, ActionBindingV2, ActionError, ActionReceiptV2,
-    ActionRequestV2, SignedActionV2, ACTION_PROFILE_VERSION, MAX_ACTION_WIRE_BYTES,
+    encode_action_v2, encode_action_v3, evaluate_action_v2, evaluate_action_v3, ActionBindingV2,
+    ActionBindingV3, ActionError, ActionReceiptV2, ActionReceiptV3, ActionRequestV2,
+    ActionRequestV3, SignedActionV2, SignedActionV3, ACTION_PROFILE_V3_VERSION,
+    ACTION_PROFILE_VERSION, MAX_ACTION_WIRE_BYTES,
 };
 pub use error::{IdentifierField, InputKind, TrustError};
 pub use kernel::{encode_claim, evaluate_claim, scoped_revocation_id};
