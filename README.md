@@ -1,7 +1,7 @@
 # ViTech Swoosh Core
 
-> **Private release candidate — `v0.1.0-preview`**  
-> This repository is not yet approved for public release.
+> **Open-source developer preview — `v0.1.0-preview`**  
+> Security-sensitive preview release. Not an industrial or functional-safety certification.
 
 **Swoosh Core** is ViTech's inspectable deterministic authority layer for governed AI, agents, software, tools, devices and machines.
 
@@ -10,6 +10,28 @@ Its job is deliberately narrow:
 > **Models may reason. Swoosh decides whether protected action is authorized.**
 
 Swoosh is not an AI model, planner or workflow engine. It is the security boundary that determines whether a structured action may proceed.
+
+---
+
+## Quick start
+
+Requirements: Rust 1.85+.
+
+```bash
+cargo test --locked --workspace --all-targets
+cargo run --locked -p proof-pack --quiet
+```
+
+To verify protocol fixtures:
+
+```bash
+cd protocol
+python -m venv .venv
+.venv/bin/python -m pip install .
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+For full release-quality verification, see [Build and verify](#build-and-verify).
 
 ---
 
