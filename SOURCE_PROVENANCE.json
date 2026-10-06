@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "release": "v0.1.0-preview",
-  "status": "private-staging",
+  "status": "public-preview-candidate",
   "targetRepository": "Vitechsol/vitechintelligence-swoosh-core",
   "verifiedAgainstCleanCommit": "73ba602b9f9a0a8cbedeb3c93227a6722522d0a8",
   "generatedDate": "2026-10-06",
@@ -110,12 +110,13 @@
     },
     {
       "path": "proof-pack/examples/halibut_fixture.rs",
-      "cleanBlobSha": "5355d5abfbdac5785e88fe467f521f69ffa53052",
-      "extraction": "exact",
+      "cleanBlobSha": "ccab5cfc6f28d7d8c39c37ab226a6b3231c27c72",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "proof-pack/examples/halibut_fixture.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "5355d5abfbdac5785e88fe467f521f69ffa53052"
+      "sourceBlobSha": "5355d5abfbdac5785e88fe467f521f69ffa53052",
+      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
     },
     {
       "path": "proof-pack/src/lib.rs",
@@ -173,12 +174,13 @@
     },
     {
       "path": "protocol/contracts/v1/README.md",
-      "cleanBlobSha": "1f54288a7e977d63f31a92019e44ff950d7ee273",
-      "extraction": "exact",
+      "cleanBlobSha": "5943d7859e35895959e34e6448473de1e3b33cff",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
       "sourcePath": "contracts/v1/README.md",
       "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
-      "sourceBlobSha": "1f54288a7e977d63f31a92019e44ff950d7ee273"
+      "sourceBlobSha": "1f54288a7e977d63f31a92019e44ff950d7ee273",
+      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
     },
     {
       "path": "protocol/examples/async_reference_monitor.py",
@@ -355,12 +357,13 @@
     },
     {
       "path": "trust-console/src/main.rs",
-      "cleanBlobSha": "a038669b3fcc782264284233bf424fecd01da648",
-      "extraction": "exact",
+      "cleanBlobSha": "47f29dc8553c0fe3160d7c0aed43ec191b8da12c",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-console/src/main.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "a038669b3fcc782264284233bf424fecd01da648"
+      "sourceBlobSha": "a038669b3fcc782264284233bf424fecd01da648",
+      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
     },
     {
       "path": "trust-console/tests/console_e2e.rs",
@@ -383,12 +386,13 @@
     },
     {
       "path": "trust-kernel/src/action.rs",
-      "cleanBlobSha": "418602de1ea0ff3f994425d1e39b02b013edcd10",
-      "extraction": "exact",
+      "cleanBlobSha": "ac5c7c7653263d95eb5a9a1a7a017786c7bec3e0",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-kernel/src/action.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "418602de1ea0ff3f994425d1e39b02b013edcd10"
+      "sourceBlobSha": "418602de1ea0ff3f994425d1e39b02b013edcd10",
+      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
     },
     {
       "path": "trust-kernel/src/canonical.rs",
@@ -419,12 +423,13 @@
     },
     {
       "path": "trust-kernel/src/lib.rs",
-      "cleanBlobSha": "012ffc116b2b0425b7892eb4853fea87ae7237e5",
-      "extraction": "exact",
+      "cleanBlobSha": "eaff6484b62e8a47eab632b6b66d80f6d6a7fdac",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-kernel/src/lib.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "012ffc116b2b0425b7892eb4853fea87ae7237e5"
+      "sourceBlobSha": "012ffc116b2b0425b7892eb4853fea87ae7237e5",
+      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
     },
     {
       "path": "trust-kernel/src/state.rs",
@@ -456,12 +461,13 @@
     },
     {
       "path": "trust-sdk/src/lib.rs",
-      "cleanBlobSha": "fba7b74d8b2fc975a669177d5d5b9f212f8eed0a",
-      "extraction": "exact",
+      "cleanBlobSha": "7d54ab9283c8bb9b1f78df6a47249976264884b2",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-sdk/src/lib.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "fba7b74d8b2fc975a669177d5d5b9f212f8eed0a"
+      "sourceBlobSha": "fba7b74d8b2fc975a669177d5d5b9f212f8eed0a",
+      "note": "Public preview hardening adds role-bound RBAC / Cognitive Control Plane / bounded runtime semantics while retaining the original source lineage."
     }
   ],
   "cleanRepositoryAuthoredFiles": [
@@ -487,12 +493,14 @@
     ".github/PULL_REQUEST_TEMPLATE.md",
     "SUPPORT.md",
     "docs/releases/v0.1.0-preview.md",
-    "docs/LAUNCH_ANNOUNCEMENT.md"
+    "docs/LAUNCH_ANNOUNCEMENT.md",
+    "proof-pack/tests/action_v3.rs"
   ],
   "packageMetadataNote": "Rust crates remain publish=false for the preview. Package manifests now advertise MPL-2.0; the protocol Python package advertises Apache-2.0.",
   "migrationNote": "Release repository ownership moved to the Vitechsol organization. Historical sourceRepository entries intentionally retain their original repository identities for provenance.",
   "recognitionNote": "CITATION.cff and NOTICE identify ViTech Intelligence Solutions as the originating project organization and provide machine-readable citation plus applicable redistribution attribution.",
   "publicationNote": "README publication language, quick start, citation metadata, attribution notice, and Code of Conduct are clean-repository-authored public-release documentation.",
   "communityLaunchNote": "Structured issue forms, pull-request checklist, support routing, and proposal-first contribution guidance were added for public community launch.",
-  "discoverabilityNote": "README badges/navigation, release notes, and technical launch announcement were added as public-launch discoverability assets."
+  "discoverabilityNote": "README badges/navigation, release notes, and technical launch announcement were added as public-launch discoverability assets.",
+  "hardeningNote": "Action V3 adds cryptographically role-bound authority plus cognitive-profile digest binding while retaining V2 compatibility."
 }
