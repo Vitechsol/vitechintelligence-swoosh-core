@@ -1,7 +1,27 @@
 # ViTech Swoosh Core
 
+[![Swoosh Core CI](https://github.com/Vitechsol/vitechintelligence-swoosh-core/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Vitechsol/vitechintelligence-swoosh-core/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/Vitechsol/vitechintelligence-swoosh-core?include_prereleases&sort=semver)](https://github.com/Vitechsol/vitechintelligence-swoosh-core/releases)
+[![Cite](https://img.shields.io/badge/cite-CITATION.cff-informational)](CITATION.cff)
+
 > **Open-source developer preview — `v0.1.0-preview`**  
 > Security-sensitive preview release. Not an industrial or functional-safety certification.
+
+## Start here
+
+| Goal | Route |
+|---|---|
+| **Try Swoosh** | [Quick start](#quick-start) |
+| **Understand the authority architecture** | [Technical architecture](#swoosh-technical-architecture) · [Threat model](docs/security/THREAT_MODEL.md) · [Architecture decisions](docs/decisions/) |
+| **Run security evidence** | [Proof Pack](docs/testing/PROOF_PACK.md) · `proof-pack/` |
+| **Integrate the protocol** | [Protocol contracts](protocol/contracts/v1/README.md) · `protocol/` |
+| **See examples** | `protocol/examples/` · `proof-pack/examples/` |
+| **Report a bug / propose architecture** | [Issues](https://github.com/Vitechsol/vitechintelligence-swoosh-core/issues/new/choose) |
+| **Join technical discussion** | [Discussions](https://github.com/Vitechsol/vitechintelligence-swoosh-core/discussions) |
+| **Follow project work** | [Issues](https://github.com/Vitechsol/vitechintelligence-swoosh-core/issues) · [Pull requests](https://github.com/Vitechsol/vitechintelligence-swoosh-core/pulls) |
+| **Read release notes** | [v0.1.0-preview notes](docs/releases/v0.1.0-preview.md) · [GitHub Releases](https://github.com/Vitechsol/vitechintelligence-swoosh-core/releases) |
+| **Contribute** | [CONTRIBUTING.md](CONTRIBUTING.md) · [SUPPORT.md](SUPPORT.md) |
+| **Cite ViTech** | [CITATION.cff](CITATION.cff) · [NOTICE](NOTICE) |
 
 **Swoosh Core** is ViTech's inspectable deterministic authority layer for governed AI, agents, software, tools, devices and machines.
 

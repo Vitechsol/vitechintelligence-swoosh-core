@@ -485,11 +485,14 @@
     ".github/ISSUE_TEMPLATE/question.yml",
     ".github/ISSUE_TEMPLATE/config.yml",
     ".github/PULL_REQUEST_TEMPLATE.md",
-    "SUPPORT.md"
+    "SUPPORT.md",
+    "docs/releases/v0.1.0-preview.md",
+    "docs/LAUNCH_ANNOUNCEMENT.md"
   ],
   "packageMetadataNote": "Rust crates remain publish=false for the preview. Package manifests now advertise MPL-2.0; the protocol Python package advertises Apache-2.0.",
   "migrationNote": "Release repository ownership moved to the Vitechsol organization. Historical sourceRepository entries intentionally retain their original repository identities for provenance.",
   "recognitionNote": "CITATION.cff and NOTICE identify ViTech Intelligence Solutions as the originating project organization and provide machine-readable citation plus applicable redistribution attribution.",
   "publicationNote": "README publication language, quick start, citation metadata, attribution notice, and Code of Conduct are clean-repository-authored public-release documentation.",
-  "communityLaunchNote": "Structured issue forms, pull-request checklist, support routing, and proposal-first contribution guidance were added for public community launch."
+  "communityLaunchNote": "Structured issue forms, pull-request checklist, support routing, and proposal-first contribution guidance were added for public community launch.",
+  "discoverabilityNote": "README badges/navigation, release notes, and technical launch announcement were added as public-launch discoverability assets."
 }
