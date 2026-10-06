@@ -1,0 +1,13 @@
+{
+  "kind": "task_execution",
+  "version": "1.0",
+  "workflowId": "contractor-access",
+  "taskId": "entry-1",
+  "generation": 1,
+  "state": "VALIDATED",
+  "dependencies": [],
+  "attempt": 1,
+  "maxAttempts": 3,
+  "deadline": "2026-10-05T10:05:00Z",
+  "idempotencyKey": "00000000-0000-4000-8000-000000000003"
+}

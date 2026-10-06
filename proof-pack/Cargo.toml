@@ -1,0 +1,24 @@
+[package]
+name = "proof-pack"
+description = "Reproducible SWOOSH industrial and adversarial validation harness"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+authors.workspace = true
+repository.workspace = true
+license.workspace = true
+
+[dependencies]
+ed25519-dalek = { workspace = true, features = ["rand_core"] }
+hex.workspace = true
+proptest.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+tempfile.workspace = true
+trust-kernel = { path = "../trust-kernel" }
+trust-sdk = { path = "../trust-sdk" }
+
+[lints]
+workspace = true

@@ -1,0 +1,10 @@
+{
+  "kind": "result_evidence",
+  "version": "1.0",
+  "workflowId": "contractor-access",
+  "taskId": "entry-1",
+  "generation": 1,
+  "state": "CLOSED",
+  "resultDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "commitRef": "synthetic:domain-commit"
+}

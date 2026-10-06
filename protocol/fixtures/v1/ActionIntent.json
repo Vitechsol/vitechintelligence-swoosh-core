@@ -1,0 +1,13 @@
+{
+  "kind": "action_intent",
+  "version": "1.0",
+  "contextId": "00000000-0000-4000-8000-000000000001",
+  "workflowId": "contractor-access",
+  "taskId": "entry-1",
+  "generation": 1,
+  "resource": "factory-a",
+  "action": "enter-site",
+  "purpose": "site-entry",
+  "destination": "local:factory-a",
+  "effectDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}

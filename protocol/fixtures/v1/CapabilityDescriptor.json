@@ -1,0 +1,23 @@
+{
+  "kind": "capability_descriptor",
+  "version": "1.0",
+  "capabilityRef": "00000000-0000-4000-8000-000000000002",
+  "contextId": "00000000-0000-4000-8000-000000000001",
+  "workflowId": "contractor-access",
+  "taskId": "entry-1",
+  "generation": 1,
+  "resource": "factory-a",
+  "action": "enter-site",
+  "purpose": "site-entry",
+  "destination": "local:factory-a",
+  "audience": "synthetic-local-broker",
+  "issuerRef": "synthetic-issuer",
+  "keyRef": "synthetic-key",
+  "issuedAt": "2026-10-05T10:00:00Z",
+  "expiresAt": "2026-10-05T10:05:00Z",
+  "policyVersion": 1,
+  "trustEpoch": 1,
+  "signedEnvelopeDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "profile": "swoosh.action.v2.native",
+  "effectDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}

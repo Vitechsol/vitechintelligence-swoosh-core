@@ -1,0 +1,16 @@
+{
+  "kind": "governed_context",
+  "version": "1.0",
+  "contextId": "00000000-0000-4000-8000-000000000001",
+  "tenantId": "industrial.demo",
+  "principalRef": "synthetic-principal",
+  "trustDomain": "industrial.demo",
+  "policyVersion": 1,
+  "trustEpoch": 1,
+  "purpose": "site-entry",
+  "resourceScopes": [
+    "factory-a"
+  ],
+  "createdAt": "2026-10-05T10:00:00Z",
+  "expiresAt": "2026-10-05T10:05:00Z"
+}

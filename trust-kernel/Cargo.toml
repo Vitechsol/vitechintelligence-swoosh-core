@@ -1,0 +1,26 @@
+[package]
+name = "trust-kernel"
+description = "Canonical zero-I/O SWOOSH trust decision kernel"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+authors.workspace = true
+repository.workspace = true
+license.workspace = true
+
+[features]
+default = ["std"]
+std = ["ed25519-dalek/std", "serde/std", "sha2/std"]
+
+[dependencies]
+ed25519-dalek.workspace = true
+postcard.workspace = true
+serde.workspace = true
+sha2.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+
+[lints]
+workspace = true

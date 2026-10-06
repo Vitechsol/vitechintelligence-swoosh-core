@@ -1,0 +1,62 @@
+{
+  "kind": "packet",
+  "version": "1.0",
+  "packetId": "00000000-0000-4000-8000-000000000007",
+  "correlationId": "00000000-0000-4000-8000-000000000008",
+  "createdAt": "2026-10-05T10:00:00Z",
+  "nonce": "00000000-0000-4000-8000-000000000009",
+  "context": {
+    "kind": "governed_context",
+    "version": "1.0",
+    "contextId": "00000000-0000-4000-8000-000000000001",
+    "tenantId": "industrial.demo",
+    "principalRef": "synthetic-principal",
+    "trustDomain": "industrial.demo",
+    "policyVersion": 1,
+    "trustEpoch": 1,
+    "purpose": "site-entry",
+    "resourceScopes": [
+      "factory-a"
+    ],
+    "createdAt": "2026-10-05T10:00:00Z",
+    "expiresAt": "2026-10-05T10:05:00Z"
+  },
+  "intent": {
+    "kind": "action_intent",
+    "version": "1.0",
+    "contextId": "00000000-0000-4000-8000-000000000001",
+    "workflowId": "contractor-access",
+    "taskId": "entry-1",
+    "generation": 1,
+    "resource": "factory-a",
+    "action": "enter-site",
+    "purpose": "site-entry",
+    "destination": "local:factory-a",
+    "effectDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "capability": {
+    "kind": "capability_descriptor",
+    "version": "1.0",
+    "capabilityRef": "00000000-0000-4000-8000-000000000002",
+    "contextId": "00000000-0000-4000-8000-000000000001",
+    "workflowId": "contractor-access",
+    "taskId": "entry-1",
+    "generation": 1,
+    "resource": "factory-a",
+    "action": "enter-site",
+    "purpose": "site-entry",
+    "destination": "local:factory-a",
+    "audience": "synthetic-local-broker",
+    "issuerRef": "synthetic-issuer",
+    "keyRef": "synthetic-key",
+    "issuedAt": "2026-10-05T10:00:00Z",
+    "expiresAt": "2026-10-05T10:05:00Z",
+    "policyVersion": 1,
+    "trustEpoch": 1,
+    "signedEnvelopeDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "profile": "swoosh.action.v2.native",
+    "effectDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "classification": "internal",
+  "contentRef": "synthetic:record"
+}

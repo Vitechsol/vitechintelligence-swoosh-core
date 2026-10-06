@@ -1,0 +1,484 @@
+{
+  "schemaVersion": 3,
+  "release": "v0.1.0-preview",
+  "status": "private-staging",
+  "targetRepository": "Vitechsol/vitechintelligence-swoosh-core",
+  "verifiedAgainstCleanCommit": "73ba602b9f9a0a8cbedeb3c93227a6722522d0a8",
+  "generatedDate": "2026-10-06",
+  "note": "Exact provenance is recorded for extracted source assets. Clean-repository-authored governance/release files are listed separately because SOURCE_PROVENANCE.json cannot self-hash without recursion.",
+  "extractedFiles": [
+    {
+      "path": "Cargo.lock",
+      "cleanBlobSha": "eb077b8215db3a1bef5ea5ec3756ffad50fde614",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "Cargo.lock",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "eb077b8215db3a1bef5ea5ec3756ffad50fde614"
+    },
+    {
+      "path": "Cargo.toml",
+      "cleanBlobSha": "8cdda1d2ce75eb5f5ce26f29d060fb16b8ead28c",
+      "extraction": "modified",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "Cargo.toml",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "4c4fa48363ae29690ed3442edd77cc4d47189335",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
+    },
+    {
+      "path": "docs/decisions/ADR-0007-CANONICAL-SIGNED-CLAIM-AND-TRUSTPACK-PROFILE.md",
+      "cleanBlobSha": "a3cde3245db5ba1f52ccd03505c4d1ebd8dfafe4",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "docs/decisions/ADR-0007-CANONICAL-SIGNED-CLAIM-AND-TRUSTPACK-PROFILE.md",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "a3cde3245db5ba1f52ccd03505c4d1ebd8dfafe4"
+    },
+    {
+      "path": "docs/decisions/ADR-0008-ACTION-V2-AND-PINNED-HOST-CONTEXT.md",
+      "cleanBlobSha": "ab77d937606228ebac46ea3f8d4283536fd1e75a",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "docs/decisions/ADR-0008-ACTION-V2-AND-PINNED-HOST-CONTEXT.md",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "ab77d937606228ebac46ea3f8d4283536fd1e75a"
+    },
+    {
+      "path": "docs/protocol/ARCHITECTURE.md",
+      "cleanBlobSha": "52f09b6362364203adffff66cd0f76c6b2095984",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "docs/ARCHITECTURE.md",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "52f09b6362364203adffff66cd0f76c6b2095984"
+    },
+    {
+      "path": "docs/security/KEY_MANAGEMENT.md",
+      "cleanBlobSha": "5f5cdf83654af0194e9187d3c21328b6a87bf716",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "docs/security/KEY_MANAGEMENT.md",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "5f5cdf83654af0194e9187d3c21328b6a87bf716"
+    },
+    {
+      "path": "docs/security/THREAT_MODEL.md",
+      "cleanBlobSha": "a8dfe4e3750a83e20affd29a3078ff7db37682e0",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "docs/security/THREAT_MODEL.md",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "a8dfe4e3750a83e20affd29a3078ff7db37682e0"
+    },
+    {
+      "path": "docs/testing/PROOF_PACK.md",
+      "cleanBlobSha": "d05a5dea601e595c2ed5045e034f92413023d154",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "docs/testing/PROOF_PACK.md",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "d05a5dea601e595c2ed5045e034f92413023d154"
+    },
+    {
+      "path": "LICENSES/Apache-2.0.txt",
+      "cleanBlobSha": "137069b823873b8bcf42979bcf8e9371052d26a2",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Halibut-Intelligence-OS",
+      "sourcePath": "release/open-core/LICENSES/Apache-2.0.txt",
+      "sourceCommit": "e72aa0cb2c6a7f41f680b8b525caea90bac94b72",
+      "sourceBlobSha": "137069b823873b8bcf42979bcf8e9371052d26a2"
+    },
+    {
+      "path": "LICENSES/MPL-2.0.txt",
+      "cleanBlobSha": "ee6256cdb62a765749a71aae3abea32884301cd1",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Halibut-Intelligence-OS",
+      "sourcePath": "release/open-core/LICENSES/MPL-2.0.txt",
+      "sourceCommit": "e72aa0cb2c6a7f41f680b8b525caea90bac94b72",
+      "sourceBlobSha": "ee6256cdb62a765749a71aae3abea32884301cd1"
+    },
+    {
+      "path": "proof-pack/Cargo.toml",
+      "cleanBlobSha": "3c03af703bf4dd36cbf9272cf6999370b480e87a",
+      "extraction": "modified",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "proof-pack/Cargo.toml",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "3c03af703bf4dd36cbf9272cf6999370b480e87a",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
+    },
+    {
+      "path": "proof-pack/examples/halibut_fixture.rs",
+      "cleanBlobSha": "5355d5abfbdac5785e88fe467f521f69ffa53052",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "proof-pack/examples/halibut_fixture.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "5355d5abfbdac5785e88fe467f521f69ffa53052"
+    },
+    {
+      "path": "proof-pack/src/lib.rs",
+      "cleanBlobSha": "04822c602b9c1884aabe9a69f8ea4ee962ceb580",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "proof-pack/src/lib.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "04822c602b9c1884aabe9a69f8ea4ee962ceb580"
+    },
+    {
+      "path": "proof-pack/src/main.rs",
+      "cleanBlobSha": "20e17c2b5750d12a031838c6f813caf3eccd051b",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "proof-pack/src/main.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "20e17c2b5750d12a031838c6f813caf3eccd051b"
+    },
+    {
+      "path": "proof-pack/tests/action_v2.rs",
+      "cleanBlobSha": "f3a88dde7cc346b6581e4c500d375d01c7ca922e",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "proof-pack/tests/action_v2.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "f3a88dde7cc346b6581e4c500d375d01c7ca922e"
+    },
+    {
+      "path": "proof-pack/tests/adversarial.rs",
+      "cleanBlobSha": "35c23ab68cb53e5e004cc9c9703d06d3d4335e64",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "proof-pack/tests/adversarial.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "35c23ab68cb53e5e004cc9c9703d06d3d4335e64"
+    },
+    {
+      "path": "proof-pack/tests/golden_vectors.rs",
+      "cleanBlobSha": "96f08af4e8acd414bc392c4b6dd1fcc2a2896cc8",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "proof-pack/tests/golden_vectors.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "96f08af4e8acd414bc392c4b6dd1fcc2a2896cc8"
+    },
+    {
+      "path": "proof-pack/tests/industrial_drills.rs",
+      "cleanBlobSha": "54c9b8a6e61fe3f9cb76b864aa9ffc5a360773d7",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "proof-pack/tests/industrial_drills.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "54c9b8a6e61fe3f9cb76b864aa9ffc5a360773d7"
+    },
+    {
+      "path": "protocol/contracts/v1/README.md",
+      "cleanBlobSha": "1f54288a7e977d63f31a92019e44ff950d7ee273",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "contracts/v1/README.md",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "1f54288a7e977d63f31a92019e44ff950d7ee273"
+    },
+    {
+      "path": "protocol/examples/async_reference_monitor.py",
+      "cleanBlobSha": "7eb4f00e487ac4364bea7930d04c70aeb7683555",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "examples/async_reference_monitor.py",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "7eb4f00e487ac4364bea7930d04c70aeb7683555"
+    },
+    {
+      "path": "protocol/examples/swoosh_packet.example.json",
+      "cleanBlobSha": "ea8f8cabd739788ada176ed68041d40b471510ed",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "examples/swoosh_packet.example.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "ea8f8cabd739788ada176ed68041d40b471510ed"
+    },
+    {
+      "path": "protocol/fixtures/native-v2/signing-vector.json",
+      "cleanBlobSha": "6ae5560ecba98460e525e7d7cbbdb53614cdba4f",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "fixtures/native-v2/signing-vector.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "6ae5560ecba98460e525e7d7cbbdb53614cdba4f"
+    },
+    {
+      "path": "protocol/fixtures/v1/ActionIntent.json",
+      "cleanBlobSha": "d1c7ac97ef83f2374d8930e99202c7f7df1bc5d2",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "fixtures/v1/ActionIntent.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "d1c7ac97ef83f2374d8930e99202c7f7df1bc5d2"
+    },
+    {
+      "path": "protocol/fixtures/v1/ApprovalEvidence.json",
+      "cleanBlobSha": "73bedc6b746b4b000de2bbf56593aadffdbbf494",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "fixtures/v1/ApprovalEvidence.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "73bedc6b746b4b000de2bbf56593aadffdbbf494"
+    },
+    {
+      "path": "protocol/fixtures/v1/AuditEvent.json",
+      "cleanBlobSha": "f68c8510808c3b619c3c894acdff3e5c09d3a08c",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "fixtures/v1/AuditEvent.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "f68c8510808c3b619c3c894acdff3e5c09d3a08c"
+    },
+    {
+      "path": "protocol/fixtures/v1/CapabilityDescriptor.json",
+      "cleanBlobSha": "c21a7baa14e5d4c0001ae3ca052f51f89c234b56",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "fixtures/v1/CapabilityDescriptor.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "c21a7baa14e5d4c0001ae3ca052f51f89c234b56"
+    },
+    {
+      "path": "protocol/fixtures/v1/CapsuleExecution.json",
+      "cleanBlobSha": "4e0312b35029ae23b7f98001b0dcb1a6e7d65af9",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "fixtures/v1/CapsuleExecution.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "4e0312b35029ae23b7f98001b0dcb1a6e7d65af9"
+    },
+    {
+      "path": "protocol/fixtures/v1/GovernedContext.json",
+      "cleanBlobSha": "59f5ccd1b627d667d428cfe9342c8722afc4bce1",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "fixtures/v1/GovernedContext.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "59f5ccd1b627d667d428cfe9342c8722afc4bce1"
+    },
+    {
+      "path": "protocol/fixtures/v1/Packet.json",
+      "cleanBlobSha": "ea8f8cabd739788ada176ed68041d40b471510ed",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "fixtures/v1/Packet.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "ea8f8cabd739788ada176ed68041d40b471510ed"
+    },
+    {
+      "path": "protocol/fixtures/v1/ResultEvidence.json",
+      "cleanBlobSha": "d0f59a215d599f9e84e9e59fc12d9cc25dde7531",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "fixtures/v1/ResultEvidence.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "d0f59a215d599f9e84e9e59fc12d9cc25dde7531"
+    },
+    {
+      "path": "protocol/fixtures/v1/TaskExecution.json",
+      "cleanBlobSha": "043f81822952657025c69ae5e63ed9c2bf174523",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "fixtures/v1/TaskExecution.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "043f81822952657025c69ae5e63ed9c2bf174523"
+    },
+    {
+      "path": "protocol/pyproject.toml",
+      "cleanBlobSha": "eaef76bc593458dea375ad14fb2a65f34445fa4b",
+      "extraction": "modified",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "pyproject.toml",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "eaef76bc593458dea375ad14fb2a65f34445fa4b",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
+    },
+    {
+      "path": "protocol/swoosh_contracts/__init__.py",
+      "cleanBlobSha": "49bdbac318be285419d008c302024c2e0c280337",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "swoosh_contracts/__init__.py",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "49bdbac318be285419d008c302024c2e0c280337"
+    },
+    {
+      "path": "protocol/swoosh_contracts/schemas/v1/contracts.schema.json",
+      "cleanBlobSha": "75455af426175d9894a2141945b6f1133f40f77f",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "swoosh_contracts/schemas/v1/contracts.schema.json",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "75455af426175d9894a2141945b6f1133f40f77f"
+    },
+    {
+      "path": "protocol/tests/test_contracts.py",
+      "cleanBlobSha": "4edf7b51f214b4395ab16ed88b25171d1d39eef6",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
+      "sourcePath": "tests/test_contracts.py",
+      "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
+      "sourceBlobSha": "4edf7b51f214b4395ab16ed88b25171d1d39eef6"
+    },
+    {
+      "path": "rust-toolchain.toml",
+      "cleanBlobSha": "ddce333361618145fd514791c70a20124b8f85d6",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "rust-toolchain.toml",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "ddce333361618145fd514791c70a20124b8f85d6"
+    },
+    {
+      "path": "scripts/check-rust-provenance.py",
+      "cleanBlobSha": "e04e1c138a8768f7b55e153aecadfee65a65f32c",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "scripts/check-rust-provenance.py",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "e04e1c138a8768f7b55e153aecadfee65a65f32c"
+    },
+    {
+      "path": "trust-console/Cargo.toml",
+      "cleanBlobSha": "e4614c5a0ee8ab7bc359402a62f635b746846d94",
+      "extraction": "modified",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-console/Cargo.toml",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "e4614c5a0ee8ab7bc359402a62f635b746846d94",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
+    },
+    {
+      "path": "trust-console/src/main.rs",
+      "cleanBlobSha": "a038669b3fcc782264284233bf424fecd01da648",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-console/src/main.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "a038669b3fcc782264284233bf424fecd01da648"
+    },
+    {
+      "path": "trust-console/tests/console_e2e.rs",
+      "cleanBlobSha": "c62bd6194257365ba47770981e690c03a745f1d0",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-console/tests/console_e2e.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "c62bd6194257365ba47770981e690c03a745f1d0"
+    },
+    {
+      "path": "trust-kernel/Cargo.toml",
+      "cleanBlobSha": "ecc3e85d2feedd836ba162fe96b2ae9e4d96edc5",
+      "extraction": "modified",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-kernel/Cargo.toml",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "ecc3e85d2feedd836ba162fe96b2ae9e4d96edc5",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
+    },
+    {
+      "path": "trust-kernel/src/action.rs",
+      "cleanBlobSha": "418602de1ea0ff3f994425d1e39b02b013edcd10",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-kernel/src/action.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "418602de1ea0ff3f994425d1e39b02b013edcd10"
+    },
+    {
+      "path": "trust-kernel/src/canonical.rs",
+      "cleanBlobSha": "65de7d3ade5918b82fc25bb295394f84c9d2c207",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-kernel/src/canonical.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "65de7d3ade5918b82fc25bb295394f84c9d2c207"
+    },
+    {
+      "path": "trust-kernel/src/error.rs",
+      "cleanBlobSha": "7cf8c1fca92d6bb5140bc9d425dd85cf014dd977",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-kernel/src/error.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "7cf8c1fca92d6bb5140bc9d425dd85cf014dd977"
+    },
+    {
+      "path": "trust-kernel/src/kernel.rs",
+      "cleanBlobSha": "e43cced00bc03dc293632f8bd1b5334202c77267",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-kernel/src/kernel.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "e43cced00bc03dc293632f8bd1b5334202c77267"
+    },
+    {
+      "path": "trust-kernel/src/lib.rs",
+      "cleanBlobSha": "012ffc116b2b0425b7892eb4853fea87ae7237e5",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-kernel/src/lib.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "012ffc116b2b0425b7892eb4853fea87ae7237e5"
+    },
+    {
+      "path": "trust-kernel/src/state.rs",
+      "cleanBlobSha": "d05377dd8907818132d7f2767fba1ad6ecf46625",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-kernel/src/state.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "d05377dd8907818132d7f2767fba1ad6ecf46625"
+    },
+    {
+      "path": "trust-kernel/src/types.rs",
+      "cleanBlobSha": "21a244a623e909efed2cdfa59814e8be19b4bbec",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-kernel/src/types.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "21a244a623e909efed2cdfa59814e8be19b4bbec"
+    },
+    {
+      "path": "trust-sdk/Cargo.toml",
+      "cleanBlobSha": "9ff815c898e477f36a9bd9a2cb01e58ce1f997ad",
+      "extraction": "modified",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-sdk/Cargo.toml",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "9ff815c898e477f36a9bd9a2cb01e58ce1f997ad",
+      "note": "clean release metadata adds explicit SPDX license/maintainer repository information"
+    },
+    {
+      "path": "trust-sdk/src/lib.rs",
+      "cleanBlobSha": "fba7b74d8b2fc975a669177d5d5b9f212f8eed0a",
+      "extraction": "exact",
+      "sourceRepository": "vitechintelligence/swooshbyvitech",
+      "sourcePath": "trust-sdk/src/lib.rs",
+      "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
+      "sourceBlobSha": "fba7b74d8b2fc975a669177d5d5b9f212f8eed0a"
+    }
+  ],
+  "cleanRepositoryAuthoredFiles": [
+    ".github/CODEOWNERS",
+    ".github/workflows/ci.yml",
+    "BRANCH_PROTECTION.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "RELEASE_CHECKLIST.md",
+    "REUSE.toml",
+    "SECURITY.md",
+    "SOURCE_PROVENANCE.json",
+    "scripts/check-license-coverage.py",
+    "scripts/generate_sbom.py"
+  ],
+  "packageMetadataNote": "Rust crates remain publish=false for the preview. Package manifests now advertise MPL-2.0; the protocol Python package advertises Apache-2.0.",
+  "migrationNote": "Release repository ownership moved to the Vitechsol organization. Historical sourceRepository entries intentionally retain their original repository identities for provenance."
+}
