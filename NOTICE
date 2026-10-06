@@ -1,5 +1,17 @@
+ViTech Swoosh Core
+Developed and maintained by ViTech Intelligence Solutions.
 Copyright 2026 ViTech Intelligence Solutions.
 
-Third-party dependencies are subject to their respective licenses and must be represented in release provenance/SBOM review.
+ViTech Swoosh Core is an original ViTech open-source project for deterministic authority infrastructure used with governed AI, agents, software, tools, devices, and machines.
 
-ViTech, Swoosh and Halibut branding are not licensed as trademarks by the source-code licenses.
+This repository uses per-path licensing. The local deterministic enforcement implementation is licensed under MPL-2.0. Public protocol assets, schemas, fixtures, documentation, and interoperability interfaces are licensed under Apache-2.0 as classified by REUSE.toml and the repository license map.
+
+For Apache-2.0-covered material, redistributed derivative works must preserve applicable attribution notices from this NOTICE as required by the Apache License 2.0.
+
+Third-party dependencies and incorporated components remain subject to their respective licenses and notices and are represented through release provenance and SBOM review.
+
+ViTech Intelligence Solutions, ViTech, Swoosh, Halibut, Intelligence Capsule, Professor Vi, and Think Beyond names and branding are not licensed as trademarks by the source-code licenses. No permission is granted to imply endorsement, certification, sponsorship, or official affiliation with ViTech Intelligence Solutions.
+
+Project origin:
+ViTech Intelligence Solutions
+https://github.com/Vitechsol/vitechintelligence-swoosh-core
