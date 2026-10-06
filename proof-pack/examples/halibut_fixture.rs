@@ -19,6 +19,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         task_id: "entry-1".into(),
         generation: 1,
         role_id: "site-entry-worker".into(),
+        cognitive_profile_digest: Sha256::digest(b"cognitive-profile:site-entry-worker:v1").into(),
         purpose: "site-entry".into(),
         destination: "local:factory-a".into(),
         effect_digest: Sha256::digest(effect).into(),
