@@ -469,6 +469,8 @@
     ".github/workflows/ci.yml",
     "BRANCH_PROTECTION.md",
     "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md",
+    "CITATION.cff",
     "LICENSE",
     "NOTICE",
     "README.md",
@@ -480,5 +482,7 @@
     "scripts/generate_sbom.py"
   ],
   "packageMetadataNote": "Rust crates remain publish=false for the preview. Package manifests now advertise MPL-2.0; the protocol Python package advertises Apache-2.0.",
-  "migrationNote": "Release repository ownership moved to the Vitechsol organization. Historical sourceRepository entries intentionally retain their original repository identities for provenance."
+  "migrationNote": "Release repository ownership moved to the Vitechsol organization. Historical sourceRepository entries intentionally retain their original repository identities for provenance.",
+  "recognitionNote": "CITATION.cff and NOTICE identify ViTech Intelligence Solutions as the originating project organization and provide machine-readable citation plus applicable redistribution attribution.",
+  "publicationNote": "README publication language, quick start, citation metadata, attribution notice, and Code of Conduct are clean-repository-authored public-release documentation."
 }

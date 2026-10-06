@@ -6,6 +6,6 @@ SPDX-FileCopyrightText = "2026 ViTech Intelligence Solutions"
 SPDX-License-Identifier = "MPL-2.0"
 
 [[annotations]]
-path = ["protocol/**","docs/**","README.md","SECURITY.md","CONTRIBUTING.md","NOTICE","LICENSE","SOURCE_PROVENANCE.json",".github/**","BRANCH_PROTECTION.md","RELEASE_CHECKLIST.md","scripts/generate_sbom.py","scripts/check-license-coverage.py"]
+path = ["protocol/**","docs/**","README.md","CITATION.cff","CODE_OF_CONDUCT.md","SECURITY.md","CONTRIBUTING.md","NOTICE","LICENSE","SOURCE_PROVENANCE.json",".github/**","BRANCH_PROTECTION.md","RELEASE_CHECKLIST.md","scripts/generate_sbom.py","scripts/check-license-coverage.py"]
 SPDX-FileCopyrightText = "2026 ViTech Intelligence Solutions"
 SPDX-License-Identifier = "Apache-2.0"
