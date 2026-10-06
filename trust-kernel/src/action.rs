@@ -317,7 +317,6 @@ fn validate_binding(binding: &ActionBindingV2) -> Result<(), ActionError> {
     if binding.generation == 0
         || binding.policy_version == 0
         || binding.trust_epoch == 0
-        || binding.cognitive_profile_digest.iter().all(|byte| *byte == 0)
         || binding.effect_digest.iter().all(|byte| *byte == 0)
     {
         return Err(ActionError::InvalidBinding);
@@ -340,6 +339,7 @@ fn validate_binding_v3(binding: &ActionBindingV3) -> Result<(), ActionError> {
     if binding.generation == 0
         || binding.policy_version == 0
         || binding.trust_epoch == 0
+        || binding.cognitive_profile_digest.iter().all(|byte| *byte == 0)
         || binding.effect_digest.iter().all(|byte| *byte == 0)
     {
         return Err(ActionError::InvalidBinding);
