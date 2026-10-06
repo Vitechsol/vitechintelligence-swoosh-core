@@ -145,7 +145,6 @@ impl SignedActionV2 {
             bytes.extend_from_slice(value.as_bytes());
         }
         bytes.extend_from_slice(&self.binding.generation.to_be_bytes());
-        bytes.extend_from_slice(&self.binding.cognitive_profile_digest);
         bytes.extend_from_slice(&self.binding.effect_digest);
         bytes.extend_from_slice(&self.binding.policy_version.to_be_bytes());
         bytes.extend_from_slice(&self.binding.trust_epoch.to_be_bytes());
@@ -175,6 +174,7 @@ impl SignedActionV3 {
             bytes.extend_from_slice(value.as_bytes());
         }
         bytes.extend_from_slice(&self.binding.generation.to_be_bytes());
+        bytes.extend_from_slice(&self.binding.cognitive_profile_digest);
         bytes.extend_from_slice(&self.binding.effect_digest);
         bytes.extend_from_slice(&self.binding.policy_version.to_be_bytes());
         bytes.extend_from_slice(&self.binding.trust_epoch.to_be_bytes());
