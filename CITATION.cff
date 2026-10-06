@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use ViTech Swoosh Core in research, software, or technical work, please cite ViTech Intelligence Solutions and this repository."
+title: "ViTech Swoosh Core"
+type: software
+version: "0.1.0-preview"
+authors:
+  - name: "ViTech Intelligence Solutions"
+repository-code: "https://github.com/Vitechsol/vitechintelligence-swoosh-core"
+license: "MPL-2.0 AND Apache-2.0"
+abstract: "Deterministic authority infrastructure for governed AI, agents, software, tools, devices, and machines."
+keywords:
+  - governed AI
+  - AI authority
+  - deterministic authorization
+  - agent security
+  - trust kernel
+  - Swoosh
