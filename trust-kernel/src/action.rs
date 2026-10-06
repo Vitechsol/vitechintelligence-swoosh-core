@@ -54,8 +54,8 @@ pub struct ActionReceiptV2 {
 /// Additive role-bound action profile. V2 remains supported for compatibility.
 ///
 /// The trusted host supplies `authenticated_role`; model output is never a role source.
-/// The same authorized action signer cryptographically binds the role to workflow, task,
-/// generation, purpose, destination, exact effect, policy version and trust epoch.
+/// The same authorized action signer cryptographically binds the role and cognitive-profile digest
+/// to workflow, task, generation, purpose, destination, exact effect, policy version and trust epoch.
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct ActionBindingV3 {
@@ -63,6 +63,7 @@ pub struct ActionBindingV3 {
     pub task_id: String,
     pub generation: u64,
     pub role_id: String,
+    pub cognitive_profile_digest: [u8; 32],
     pub purpose: String,
     pub destination: String,
     pub effect_digest: [u8; 32],
@@ -144,6 +145,7 @@ impl SignedActionV2 {
             bytes.extend_from_slice(value.as_bytes());
         }
         bytes.extend_from_slice(&self.binding.generation.to_be_bytes());
+        bytes.extend_from_slice(&self.binding.cognitive_profile_digest);
         bytes.extend_from_slice(&self.binding.effect_digest);
         bytes.extend_from_slice(&self.binding.policy_version.to_be_bytes());
         bytes.extend_from_slice(&self.binding.trust_epoch.to_be_bytes());
@@ -315,6 +317,7 @@ fn validate_binding(binding: &ActionBindingV2) -> Result<(), ActionError> {
     if binding.generation == 0
         || binding.policy_version == 0
         || binding.trust_epoch == 0
+        || binding.cognitive_profile_digest.iter().all(|byte| *byte == 0)
         || binding.effect_digest.iter().all(|byte| *byte == 0)
     {
         return Err(ActionError::InvalidBinding);
