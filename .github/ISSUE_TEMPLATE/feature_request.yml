@@ -1,7 +1,6 @@
 name: Feature or architecture proposal
 description: Propose an improvement to the open Swoosh Core
 title: "[Proposal]: "
-labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
