@@ -69,7 +69,11 @@ fn console_installs_inspects_and_evaluates_real_sdk_state() -> Result<(), Box<dy
         .arg("--claim")
         .arg(&claim)
         .arg("--trust-pack")
-        .arg(&store))?;
+        .arg(&store)
+        .arg("--expected-checkpoint")
+        .arg(&checkpoint)
+        .arg("--minimum-epoch")
+        .arg("1"))?;
     let receipt: Value = serde_json::from_slice(&evaluate.stdout)?;
     assert_eq!(receipt["ok"], true);
     assert_eq!(receipt["decision"], "ALLOW");
