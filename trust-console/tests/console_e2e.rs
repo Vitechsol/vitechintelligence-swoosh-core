@@ -48,7 +48,7 @@ fn console_installs_inspects_and_evaluates_real_sdk_state() -> Result<(), Box<dy
         .arg("--store")
         .arg(&store)
         .arg("--expected-checkpoint")
-        .arg(checkpoint))?;
+        .arg(&checkpoint))?;
     let installed: Value = serde_json::from_slice(&install.stdout)?;
     assert_eq!(installed["ok"], true);
     assert_eq!(installed["operation"], "installed");
