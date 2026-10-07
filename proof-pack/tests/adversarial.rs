@@ -498,7 +498,6 @@ fn single_byte_claim_corruption_never_authorizes() -> Result<(), Box<dyn Error>>
     Ok(())
 }
 
-
 #[test]
 fn trailing_bytes_on_claim_are_rejected() -> Result<(), Box<dyn Error>> {
     let base = fixture()?;
@@ -523,7 +522,6 @@ fn trailing_bytes_on_trust_pack_are_rejected() -> Result<(), Box<dyn Error>> {
     );
     Ok(())
 }
-
 
 proptest! {
     #[test]
