@@ -72,7 +72,14 @@ def main() -> int:
 
     provenance_path = workspace / "SOURCE_PROVENANCE.json"
     provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
-    for entry in provenance.get("extractedFiles", []):
+    extracted_files = provenance.get("extractedFiles")
+    if not isinstance(extracted_files, list) or not extracted_files:
+        failures.append("SOURCE_PROVENANCE extractedFiles must be a nonempty list")
+        extracted_files = []
+    for entry in extracted_files:
+        if not isinstance(entry, dict):
+            failures.append(f"invalid SOURCE_PROVENANCE entry: {entry!r}")
+            continue
         relative = entry.get("path")
         expected = entry.get("cleanBlobSha")
         if not relative or not expected:
