@@ -60,17 +60,16 @@ DECIDE is deterministic policy evaluation.
 
 It must not be implemented as "ask an LLM whether this is allowed."
 
-The canonical decision classes are conceptually:
+The canonical **authoritative outcome** is one of:
 
 ```text
 ALLOW
 DENY
-REQUIRE_COGNITIVE_REVIEW
-REQUIRE_HUMAN_AUTHORITY
-REQUIRE_PHYSICAL_SAFETY_APPROVAL
 ```
 
-The exact API representation may evolve, but these meanings remain distinct.
+A compatible host may separately attach non-authorizing routing statuses such as `REQUIRE_COGNITIVE_REVIEW`, `REQUIRE_HUMAN_AUTHORITY`, or `REQUIRE_PHYSICAL_SAFETY_APPROVAL`. Those statuses do not permit MOVE. The protected effect remains fail-closed until the required review or authority change occurs and Swoosh reevaluates the request to a final `ALLOW` or `DENY`.
+
+The exact API representation of routing metadata may evolve, but it must never be interpreted as authorization.
 
 ### Deterministic authority
 
