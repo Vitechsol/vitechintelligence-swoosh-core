@@ -97,13 +97,8 @@ def main() -> int:
             continue
         for key in ("cleanBlobSha", "sourceCommit", "sourceBlobSha"):
             value = entry[key]
-            if len(value) != 40:
-                failures.append(f"{entry['path']}: {key} must be a 40-character Git SHA")
-                continue
-            try:
-                int(value, 16)
-            except ValueError:
-                failures.append(f"{entry['path']}: {key} must be hexadecimal")
+            if len(value) != 40 or any(character not in "0123456789abcdefABCDEF" for character in value):
+                failures.append(f"{entry['path']}: {key} must be exactly 40 hexadecimal characters")
         relative = entry["path"]
         expected = entry["cleanBlobSha"]
         candidate = workspace / relative
