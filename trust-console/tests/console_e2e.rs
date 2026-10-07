@@ -85,6 +85,55 @@ fn console_installs_inspects_and_evaluates_real_sdk_state() -> Result<(), Box<dy
     Ok(())
 }
 
+
+#[test]
+fn console_claim_evaluation_enforces_persisted_pin_and_epoch_floor() -> Result<(), Box<dyn Error>> {
+    let now = SystemTime::now().duration_since(UNIX_EPOCH)?.as_secs();
+    let fixture = fixture_at(now)?;
+    let temporary = tempdir()?;
+    let pack = temporary.path().join("current.tpack");
+    let claim = temporary.path().join("claim.sclaim");
+    fs::write(&pack, &fixture.pack_bytes)?;
+    fs::write(&claim, &fixture.claim_bytes)?;
+
+    let binary = env!("CARGO_BIN_EXE_trust-console");
+    let checkpoint = hex::encode(fixture.signed_pack.checkpoint()?);
+
+    let wrong_pin = Command::new(binary)
+        .arg("evaluate")
+        .arg("--claim")
+        .arg(&claim)
+        .arg("--trust-pack")
+        .arg(&pack)
+        .arg("--expected-checkpoint")
+        .arg("0".repeat(64))
+        .arg("--minimum-epoch")
+        .arg("1")
+        .output()?;
+    assert!(!wrong_pin.status.success());
+
+    let stale_epoch = Command::new(binary)
+        .arg("evaluate")
+        .arg("--claim")
+        .arg(&claim)
+        .arg("--trust-pack")
+        .arg(&pack)
+        .arg("--expected-checkpoint")
+        .arg(&checkpoint)
+        .arg("--minimum-epoch")
+        .arg("2")
+        .output()?;
+    assert!(!stale_epoch.status.success());
+    let error: Value = serde_json::from_slice(&stale_epoch.stderr)?;
+    assert_eq!(error["ok"], false);
+    assert!(error["error"]
+        .as_str()
+        .unwrap_or_default()
+        .contains("newer state"));
+
+    Ok(())
+}
+
 #[test]
 fn stale_lock_file_does_not_block_recovery() -> Result<(), Box<dyn Error>> {
     let now = SystemTime::now().duration_since(UNIX_EPOCH)?.as_secs();
