@@ -80,11 +80,27 @@ def main() -> int:
         if not isinstance(entry, dict):
             failures.append(f"invalid SOURCE_PROVENANCE entry: {entry!r}")
             continue
-        relative = entry.get("path")
-        expected = entry.get("cleanBlobSha")
-        if not relative or not expected:
+        required_strings = (
+            "path",
+            "cleanBlobSha",
+            "sourceRepository",
+            "sourcePath",
+            "sourceCommit",
+            "sourceBlobSha",
+            "extraction",
+        )
+        if any(not isinstance(entry.get(key), str) or not entry[key].strip() for key in required_strings):
             failures.append(f"invalid SOURCE_PROVENANCE entry: {entry!r}")
             continue
+        if entry["extraction"] not in {"exact", "modified"}:
+            failures.append(f"{entry['path']}: invalid extraction mode {entry['extraction']!r}")
+            continue
+        for key in ("cleanBlobSha", "sourceCommit", "sourceBlobSha"):
+            value = entry[key]
+            if len(value) != 40 or any(character not in "0123456789abcdefABCDEF" for character in value):
+                failures.append(f"{entry['path']}: {key} must be exactly 40 hexadecimal characters")
+        relative = entry["path"]
+        expected = entry["cleanBlobSha"]
         candidate = workspace / relative
         if not candidate.is_file():
             failures.append(f"{relative}: provenance path missing from checkout")
