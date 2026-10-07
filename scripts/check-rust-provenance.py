@@ -2,6 +2,7 @@
 """Fail closed on unexpected Rust dependency sources or license expressions."""
 from __future__ import annotations
 
+import hashlib
 import json
 import subprocess
 import sys
@@ -25,6 +26,12 @@ REVIEWED_LICENSE_EXPRESSIONS = {
     "MIT/Apache-2.0",
     "Unlicense OR MIT",
 }
+
+
+def git_blob_sha(path: Path) -> str:
+    data = path.read_bytes()
+    header = f"blob {len(data)}\\0".encode("ascii")
+    return hashlib.sha1(header + data).hexdigest()
 
 
 def main() -> int:
@@ -63,6 +70,24 @@ def main() -> int:
                 f"{package['name']} {package['version']}: unreviewed license expression {expression!r}"
             )
 
+    provenance_path = workspace / "SOURCE_PROVENANCE.json"
+    provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+    for entry in provenance.get("extractedFiles", []):
+        relative = entry.get("path")
+        expected = entry.get("cleanBlobSha")
+        if not relative or not expected:
+            failures.append(f"invalid SOURCE_PROVENANCE entry: {entry!r}")
+            continue
+        candidate = workspace / relative
+        if not candidate.is_file():
+            failures.append(f"{relative}: provenance path missing from checkout")
+            continue
+        actual = git_blob_sha(candidate)
+        if actual != expected:
+            failures.append(
+                f"{relative}: cleanBlobSha mismatch; expected {expected}, current {actual}"
+            )
+
     print("Reviewed external Rust license expressions:")
     for value in sorted(licenses):
         print(f"  {value}")
@@ -73,7 +98,7 @@ def main() -> int:
             print(f"  - {failure}", file=sys.stderr)
         return 1
 
-    print("\nRust dependency provenance: PASS")
+    print("\nRust dependency and source provenance: PASS")
     return 0
 
 
