@@ -3,7 +3,7 @@
   "release": "v0.1.0-preview",
   "status": "public-preview-candidate",
   "targetRepository": "Vitechsol/vitechintelligence-swoosh-core",
-  "verifiedAgainstCleanCommit": "ca6bb27aa8f7152af2f0c51b7fa3ee58fbb4565e",
+  "verifiedAgainstCleanCommit": "e90afb571aadf154c6bd90420a15f0b22bee4496",
   "generatedDate": "2026-10-06",
   "note": "Exact provenance is recorded for extracted source assets. CI recomputes Git blob hashes for every extractedFiles entry and fails closed on drift. Clean-repository-authored governance/release files are listed separately because SOURCE_PROVENANCE.json cannot self-hash without recursion.",
   "extractedFiles": [
@@ -147,7 +147,7 @@
     },
     {
       "path": "proof-pack/tests/adversarial.rs",
-      "cleanBlobSha": "e5dc14122d14f1595764852361dfd4dfe242e539",
+      "cleanBlobSha": "8f5765b73cd67099fcae0d33384245272e51a00e",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "proof-pack/tests/adversarial.rs",
@@ -359,7 +359,7 @@
     },
     {
       "path": "trust-console/src/main.rs",
-      "cleanBlobSha": "a3ab6d3342da54287034547edccc0a6df65495fb",
+      "cleanBlobSha": "9cd507cd2357c20b06d188ef30bb82c33555c93f",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-console/src/main.rs",
@@ -466,7 +466,7 @@
     },
     {
       "path": "trust-sdk/src/lib.rs",
-      "cleanBlobSha": "dd59acba35bd3929de7a1b81612c2bd44e57e4e1",
+      "cleanBlobSha": "0c5bfea93d4d9711317c4eaedaa5375e010a55a5",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-sdk/src/lib.rs",
