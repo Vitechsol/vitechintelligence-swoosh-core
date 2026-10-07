@@ -3,7 +3,7 @@
   "release": "v0.1.0-preview",
   "status": "public-preview-candidate",
   "targetRepository": "Vitechsol/vitechintelligence-swoosh-core",
-  "verifiedAgainstCleanCommit": "953a70d56bdc1af1d5e79ea5913b3d2405cedfa1",
+  "verifiedAgainstCleanCommit": "a4f879a95febbd070fb69e1cf1a40e027accfd67",
   "generatedDate": "2026-10-06",
   "note": "Exact provenance is recorded for extracted source assets. CI recomputes Git blob hashes for every extractedFiles entry and fails closed on drift. Clean-repository-authored governance/release files are listed separately because SOURCE_PROVENANCE.json cannot self-hash without recursion.",
   "extractedFiles": [
@@ -369,7 +369,7 @@
     },
     {
       "path": "trust-console/tests/console_e2e.rs",
-      "cleanBlobSha": "c3202f900b5eb34c1fbaf5624ce974a185a05c10",
+      "cleanBlobSha": "146389b06340abe69d060e86393cfeb6c1ef6f51",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-console/tests/console_e2e.rs",
