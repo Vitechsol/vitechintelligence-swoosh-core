@@ -14,9 +14,9 @@ use fs2::FileExt;
 use serde::Serialize;
 use tempfile::NamedTempFile;
 use trust_sdk::{
-    Decision, DecisionReason, DecisionReceipt, FreshnessAssurance,
-    InstalledTrustContext, SdkError, TrustPackManager, TrustPackMetadata, MAX_ACTION_WIRE_BYTES,
-    MAX_CLAIM_WIRE_BYTES, MAX_TRUST_PACK_WIRE_BYTES,
+    Decision, DecisionReason, DecisionReceipt, FreshnessAssurance, InstalledTrustContext, SdkError,
+    TrustPackManager, TrustPackMetadata, MAX_ACTION_WIRE_BYTES, MAX_CLAIM_WIRE_BYTES,
+    MAX_TRUST_PACK_WIRE_BYTES,
 };
 
 #[derive(Debug, Parser)]
@@ -330,7 +330,8 @@ fn run(cli: Cli) -> Result<(), ConsoleError> {
             let claim_bytes = read_raw(&claim)?;
             let trust_pack_bytes = read_limited(&trust_pack, MAX_TRUST_PACK_WIRE_BYTES)?;
             let checkpoint = parse_checkpoint(&expected_checkpoint)?;
-            let mut context = InstalledTrustContext::install_at(&trust_pack_bytes, &checkpoint, now)?;
+            let mut context =
+                InstalledTrustContext::install_at(&trust_pack_bytes, &checkpoint, now)?;
             context.note_authoritative_epoch(minimum_epoch);
             let receipt = context.evaluate_claim_at(&claim_bytes, now)?;
             print_receipt(&receipt)
