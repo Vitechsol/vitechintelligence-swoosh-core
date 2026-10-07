@@ -72,6 +72,18 @@ impl InstalledTrustContext {
     pub fn metadata(&self) -> &TrustPackMetadata {
         &self.metadata
     }
+    /// Evaluate a canonical claim only after this context has been installed from an
+    /// externally pinned checkpoint and any authoritative epoch floor has been applied.
+    pub fn evaluate_claim_at(
+        &self,
+        claim: &[u8],
+        now: u64,
+    ) -> Result<DecisionReceipt, SdkError> {
+        if self.metadata.trust_epoch < self.minimum_epoch {
+            return Err(SdkError::NewerEpochRequired);
+        }
+        trust_kernel::evaluate_claim(claim, &self.pack, now).map_err(Into::into)
+    }
     pub fn evaluate_action_at(
         &self,
         action: &[u8],
