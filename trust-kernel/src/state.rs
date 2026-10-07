@@ -336,7 +336,12 @@ pub(crate) fn decode_trust_pack(bytes: &[u8]) -> Result<SignedTrustPack, TrustEr
             limit: MAX_TRUST_PACK_WIRE_BYTES,
         });
     }
-    postcard::from_bytes(bytes).map_err(|_| TrustError::MalformedTrustPack)
+    let (pack, remainder) =
+        postcard::take_from_bytes(bytes).map_err(|_| TrustError::MalformedTrustPack)?;
+    if !remainder.is_empty() {
+        return Err(TrustError::MalformedTrustPack);
+    }
+    Ok(pack)
 }
 
 pub fn encode_trust_pack(pack: &SignedTrustPack) -> Result<Vec<u8>, TrustError> {

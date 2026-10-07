@@ -69,7 +69,12 @@ fn decode_claim(bytes: &[u8]) -> Result<SignedClaim, TrustError> {
             limit: MAX_CLAIM_WIRE_BYTES,
         });
     }
-    postcard::from_bytes(bytes).map_err(|_| TrustError::MalformedClaim)
+    let (claim, remainder) =
+        postcard::take_from_bytes(bytes).map_err(|_| TrustError::MalformedClaim)?;
+    if !remainder.is_empty() {
+        return Err(TrustError::MalformedClaim);
+    }
+    Ok(claim)
 }
 
 fn evaluate_decoded_claim(

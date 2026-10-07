@@ -48,7 +48,7 @@ fn console_installs_inspects_and_evaluates_real_sdk_state() -> Result<(), Box<dy
         .arg("--store")
         .arg(&store)
         .arg("--expected-checkpoint")
-        .arg(checkpoint))?;
+        .arg(&checkpoint))?;
     let installed: Value = serde_json::from_slice(&install.stdout)?;
     assert_eq!(installed["ok"], true);
     assert_eq!(installed["operation"], "installed");
@@ -69,7 +69,11 @@ fn console_installs_inspects_and_evaluates_real_sdk_state() -> Result<(), Box<dy
         .arg("--claim")
         .arg(&claim)
         .arg("--trust-pack")
-        .arg(&store))?;
+        .arg(&store)
+        .arg("--expected-checkpoint")
+        .arg(&checkpoint)
+        .arg("--minimum-epoch")
+        .arg("1"))?;
     let receipt: Value = serde_json::from_slice(&evaluate.stdout)?;
     assert_eq!(receipt["ok"], true);
     assert_eq!(receipt["decision"], "ALLOW");
@@ -77,6 +81,54 @@ fn console_installs_inspects_and_evaluates_real_sdk_state() -> Result<(), Box<dy
     assert_eq!(receipt["policy_id"], "factory-access");
     assert!(receipt.get("subject_commitment").is_none());
     assert!(receipt.get("evidence_digest").is_none());
+
+    Ok(())
+}
+
+#[test]
+fn console_claim_evaluation_enforces_persisted_pin_and_epoch_floor() -> Result<(), Box<dyn Error>> {
+    let now = SystemTime::now().duration_since(UNIX_EPOCH)?.as_secs();
+    let fixture = fixture_at(now)?;
+    let temporary = tempdir()?;
+    let pack = temporary.path().join("current.tpack");
+    let claim = temporary.path().join("claim.sclaim");
+    fs::write(&pack, &fixture.pack_bytes)?;
+    fs::write(&claim, &fixture.claim_bytes)?;
+
+    let binary = env!("CARGO_BIN_EXE_trust-console");
+    let checkpoint = hex::encode(fixture.signed_pack.checkpoint()?);
+
+    let wrong_pin = Command::new(binary)
+        .arg("evaluate")
+        .arg("--claim")
+        .arg(&claim)
+        .arg("--trust-pack")
+        .arg(&pack)
+        .arg("--expected-checkpoint")
+        .arg("0".repeat(64))
+        .arg("--minimum-epoch")
+        .arg("1")
+        .output()?;
+    assert!(!wrong_pin.status.success());
+
+    let stale_epoch = Command::new(binary)
+        .arg("evaluate")
+        .arg("--claim")
+        .arg(&claim)
+        .arg("--trust-pack")
+        .arg(&pack)
+        .arg("--expected-checkpoint")
+        .arg(&checkpoint)
+        .arg("--minimum-epoch")
+        .arg("2")
+        .output()?;
+    assert!(!stale_epoch.status.success());
+    let error: Value = serde_json::from_slice(&stale_epoch.stderr)?;
+    assert_eq!(error["ok"], false);
+    assert!(error["error"]
+        .as_str()
+        .unwrap_or_default()
+        .contains("newer state"));
 
     Ok(())
 }

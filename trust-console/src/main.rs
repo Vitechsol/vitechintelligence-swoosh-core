@@ -14,9 +14,9 @@ use fs2::FileExt;
 use serde::Serialize;
 use tempfile::NamedTempFile;
 use trust_sdk::{
-    evaluate_claim, Decision, DecisionReason, DecisionReceipt, FreshnessAssurance,
-    InstalledTrustContext, SdkError, TrustPackManager, TrustPackMetadata, MAX_ACTION_WIRE_BYTES,
-    MAX_CLAIM_WIRE_BYTES, MAX_TRUST_PACK_WIRE_BYTES,
+    Decision, DecisionReason, DecisionReceipt, FreshnessAssurance, InstalledTrustContext, SdkError,
+    TrustPackManager, TrustPackMetadata, MAX_ACTION_WIRE_BYTES, MAX_CLAIM_WIRE_BYTES,
+    MAX_TRUST_PACK_WIRE_BYTES,
 };
 
 #[derive(Debug, Parser)]
@@ -65,9 +65,15 @@ enum Command {
         /// Claim file, or '-' to read the raw claim from standard input.
         #[arg(long)]
         claim: PathBuf,
-        /// Signed canonical TrustPack file.
+        /// Signed canonical TrustPack file from the installed host trust store.
         #[arg(long = "trust-pack")]
         trust_pack: PathBuf,
+        /// Persisted out-of-band checkpoint for the installed TrustPack.
+        #[arg(long = "expected-checkpoint")]
+        expected_checkpoint: String,
+        /// Persisted authoritative minimum trust epoch for anti-rollback enforcement.
+        #[arg(long = "minimum-epoch")]
+        minimum_epoch: u64,
     },
     /// Install, update, or inspect a local signed TrustPack.
     TrustPack {
@@ -311,10 +317,23 @@ fn run(cli: Cli) -> Result<(), ConsoleError> {
             println!("{}", serde_json::to_string(&receipt)?);
             Ok(())
         }
-        Command::Evaluate { claim, trust_pack } => {
+        Command::Evaluate {
+            claim,
+            trust_pack,
+            expected_checkpoint,
+            minimum_epoch,
+        } => {
+            let now = std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .map_err(|_| SdkError::ClockBeforeUnixEpoch)?
+                .as_secs();
             let claim_bytes = read_raw(&claim)?;
             let trust_pack_bytes = read_limited(&trust_pack, MAX_TRUST_PACK_WIRE_BYTES)?;
-            let receipt = evaluate_claim(&claim_bytes, &trust_pack_bytes)?;
+            let checkpoint = parse_checkpoint(&expected_checkpoint)?;
+            let mut context =
+                InstalledTrustContext::install_at(&trust_pack_bytes, &checkpoint, now)?;
+            context.note_authoritative_epoch(minimum_epoch);
+            let receipt = context.evaluate_claim_at(&claim_bytes, now)?;
             print_receipt(&receipt)
         }
         Command::TrustPack { command } => match command {

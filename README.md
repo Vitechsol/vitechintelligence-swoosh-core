@@ -4,8 +4,8 @@
 [![Release](https://img.shields.io/github/v/release/Vitechsol/vitechintelligence-swoosh-core?include_prereleases&sort=semver)](https://github.com/Vitechsol/vitechintelligence-swoosh-core/releases)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-informational)](CITATION.cff)
 
-> **Open-source developer preview — `v0.1.0-preview`**  
-> Security-sensitive preview release. Not an industrial or functional-safety certification.
+> **Developer-preview release candidate — `v0.1.0-preview`**  
+> Publication/tagging is controlled by `RELEASE_CHECKLIST.md`. Not an industrial or functional-safety certification.
 
 ## Start here
 
@@ -264,7 +264,7 @@ BROKERED MOVE
 PROVE
 ```
 
-Only Swoosh returns authoritative `ALLOW` or `DENY`.
+Only Swoosh returns authoritative `ALLOW` or `DENY`. In the v0.1 Rust API, authorization is represented by an `Allow` receipt while deterministic denials are returned as typed errors; `DENY` describes the authority outcome, not a `Decision::Deny` enum variant.
 
 ### Protected resources can include
 
