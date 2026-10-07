@@ -9,7 +9,7 @@ use trust_kernel::{
     encode_claim, encode_trust_pack, evaluate_claim, scoped_revocation_id,
     verify_trust_pack_transition, ClaimId, DecisionReason, FreshnessAssurance, IssuerId, KeyId,
     KeyPurpose, KeyState, PackId, SignatureAlgorithm, TrustAnchor, TrustDomainId, TrustError,
-    MAX_CLAIM_WIRE_BYTES,
+    MAX_CLAIM_WIRE_BYTES, MAX_TRUST_PACK_WIRE_BYTES,
 };
 
 #[test]
@@ -497,6 +497,33 @@ fn single_byte_claim_corruption_never_authorizes() -> Result<(), Box<dyn Error>>
     assert!(evaluate_claim(&corrupted, &base.pack_bytes, EVALUATION_TIME).is_err());
     Ok(())
 }
+
+
+#[test]
+fn trailing_bytes_on_claim_are_rejected() -> Result<(), Box<dyn Error>> {
+    let base = fixture()?;
+    let mut claim = base.claim_bytes.clone();
+    claim.push(0);
+    assert_eq!(
+        evaluate_claim(&claim, &base.pack_bytes, EVALUATION_TIME),
+        Err(TrustError::MalformedClaim)
+    );
+    Ok(())
+}
+
+#[test]
+fn trailing_bytes_on_trust_pack_are_rejected() -> Result<(), Box<dyn Error>> {
+    let base = fixture()?;
+    let mut pack = base.pack_bytes.clone();
+    assert!(pack.len() < MAX_TRUST_PACK_WIRE_BYTES);
+    pack.push(0);
+    assert_eq!(
+        evaluate_claim(&base.claim_bytes, &pack, EVALUATION_TIME),
+        Err(TrustError::MalformedTrustPack)
+    );
+    Ok(())
+}
+
 
 proptest! {
     #[test]
