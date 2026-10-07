@@ -3,9 +3,9 @@
   "release": "v0.1.0-preview",
   "status": "public-preview-candidate",
   "targetRepository": "Vitechsol/vitechintelligence-swoosh-core",
-  "verifiedAgainstCleanCommit": "73ba602b9f9a0a8cbedeb3c93227a6722522d0a8",
+  "verifiedAgainstCleanCommit": "ca6bb27aa8f7152af2f0c51b7fa3ee58fbb4565e",
   "generatedDate": "2026-10-06",
-  "note": "Exact provenance is recorded for extracted source assets. Clean-repository-authored governance/release files are listed separately because SOURCE_PROVENANCE.json cannot self-hash without recursion.",
+  "note": "Exact provenance is recorded for extracted source assets. CI recomputes Git blob hashes for every extractedFiles entry and fails closed on drift. Clean-repository-authored governance/release files are listed separately because SOURCE_PROVENANCE.json cannot self-hash without recursion.",
   "extractedFiles": [
     {
       "path": "Cargo.lock",
@@ -18,7 +18,7 @@
     },
     {
       "path": "Cargo.toml",
-      "cleanBlobSha": "8cdda1d2ce75eb5f5ce26f29d060fb16b8ead28c",
+      "cleanBlobSha": "071238f8a68c045521b403b19cf376bf5b891bc3",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "Cargo.toml",
@@ -100,7 +100,7 @@
     },
     {
       "path": "proof-pack/Cargo.toml",
-      "cleanBlobSha": "3c03af703bf4dd36cbf9272cf6999370b480e87a",
+      "cleanBlobSha": "fa7a62646761d79f7d66f8047e0eb943efce2881",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "proof-pack/Cargo.toml",
@@ -147,12 +147,13 @@
     },
     {
       "path": "proof-pack/tests/adversarial.rs",
-      "cleanBlobSha": "35c23ab68cb53e5e004cc9c9703d06d3d4335e64",
-      "extraction": "exact",
+      "cleanBlobSha": "e5dc14122d14f1595764852361dfd4dfe242e539",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "proof-pack/tests/adversarial.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "35c23ab68cb53e5e004cc9c9703d06d3d4335e64"
+      "sourceBlobSha": "35c23ab68cb53e5e004cc9c9703d06d3d4335e64",
+      "note": "release hardening adds strict-decoder adversarial coverage"
     },
     {
       "path": "proof-pack/tests/golden_vectors.rs",
@@ -292,7 +293,7 @@
     },
     {
       "path": "protocol/pyproject.toml",
-      "cleanBlobSha": "eaef76bc593458dea375ad14fb2a65f34445fa4b",
+      "cleanBlobSha": "13ae3cbf6c72444d6cb5a5261a36caf50d3a6e29",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
       "sourcePath": "pyproject.toml",
@@ -338,16 +339,17 @@
     },
     {
       "path": "scripts/check-rust-provenance.py",
-      "cleanBlobSha": "e04e1c138a8768f7b55e153aecadfee65a65f32c",
-      "extraction": "exact",
+      "cleanBlobSha": "a90912d63d94dc3f4811a41702dd3a3e628d67c9",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "scripts/check-rust-provenance.py",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "e04e1c138a8768f7b55e153aecadfee65a65f32c"
+      "sourceBlobSha": "e04e1c138a8768f7b55e153aecadfee65a65f32c",
+      "note": "release hardening adds CI enforcement of SOURCE_PROVENANCE cleanBlobSha values"
     },
     {
       "path": "trust-console/Cargo.toml",
-      "cleanBlobSha": "e4614c5a0ee8ab7bc359402a62f635b746846d94",
+      "cleanBlobSha": "32ecbc90812d591070e23689b9662b38571f6fa0",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-console/Cargo.toml",
@@ -357,26 +359,27 @@
     },
     {
       "path": "trust-console/src/main.rs",
-      "cleanBlobSha": "c1d8bebaeba8109e7ebf247a17e638b02e187e02",
+      "cleanBlobSha": "a3ab6d3342da54287034547edccc0a6df65495fb",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-console/src/main.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
       "sourceBlobSha": "a038669b3fcc782264284233bf424fecd01da648",
-      "note": "Public-preview hardening adds the additive role-bound Action V3 profile and Cognitive Control Plane binding while preserving V2 compatibility."
+      "note": "release hardening requires persisted checkpoint and minimum epoch for claim evaluation"
     },
     {
       "path": "trust-console/tests/console_e2e.rs",
-      "cleanBlobSha": "c62bd6194257365ba47770981e690c03a745f1d0",
-      "extraction": "exact",
+      "cleanBlobSha": "7ffc0a288f8cbc89166fcc6cad42df439f4f5cbe",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-console/tests/console_e2e.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "c62bd6194257365ba47770981e690c03a745f1d0"
+      "sourceBlobSha": "c62bd6194257365ba47770981e690c03a745f1d0",
+      "note": "release hardening verifies pinned claim evaluation"
     },
     {
       "path": "trust-kernel/Cargo.toml",
-      "cleanBlobSha": "ecc3e85d2feedd836ba162fe96b2ae9e4d96edc5",
+      "cleanBlobSha": "f3e25545b4e1e299e02cb722654aefb1e49f8b4b",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-kernel/Cargo.toml",
@@ -414,12 +417,13 @@
     },
     {
       "path": "trust-kernel/src/kernel.rs",
-      "cleanBlobSha": "e43cced00bc03dc293632f8bd1b5334202c77267",
-      "extraction": "exact",
+      "cleanBlobSha": "ffc451bdf6159f2156bd72643bd73f1f6d529793",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-kernel/src/kernel.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "e43cced00bc03dc293632f8bd1b5334202c77267"
+      "sourceBlobSha": "e43cced00bc03dc293632f8bd1b5334202c77267",
+      "note": "release hardening rejects trailing bytes in signed claim decoding"
     },
     {
       "path": "trust-kernel/src/lib.rs",
@@ -433,12 +437,13 @@
     },
     {
       "path": "trust-kernel/src/state.rs",
-      "cleanBlobSha": "d05377dd8907818132d7f2767fba1ad6ecf46625",
-      "extraction": "exact",
+      "cleanBlobSha": "e0ede3da4f5153651ea0515276e4c4e334bf4bc9",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-kernel/src/state.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "d05377dd8907818132d7f2767fba1ad6ecf46625"
+      "sourceBlobSha": "d05377dd8907818132d7f2767fba1ad6ecf46625",
+      "note": "release hardening rejects trailing bytes in signed TrustPack decoding"
     },
     {
       "path": "trust-kernel/src/types.rs",
@@ -451,7 +456,7 @@
     },
     {
       "path": "trust-sdk/Cargo.toml",
-      "cleanBlobSha": "9ff815c898e477f36a9bd9a2cb01e58ce1f997ad",
+      "cleanBlobSha": "11641d45a33aa65e6d800002fa4cf38a3f13c6a9",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-sdk/Cargo.toml",
@@ -461,13 +466,13 @@
     },
     {
       "path": "trust-sdk/src/lib.rs",
-      "cleanBlobSha": "7d54ab9283c8bb9b1f78df6a47249976264884b2",
+      "cleanBlobSha": "dd59acba35bd3929de7a1b81612c2bd44e57e4e1",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-sdk/src/lib.rs",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
       "sourceBlobSha": "fba7b74d8b2fc975a669177d5d5b9f212f8eed0a",
-      "note": "Public-preview hardening adds the additive role-bound Action V3 profile and Cognitive Control Plane binding while preserving V2 compatibility."
+      "note": "release hardening adds pinned InstalledTrustContext claim evaluation"
     }
   ],
   "cleanRepositoryAuthoredFiles": [
