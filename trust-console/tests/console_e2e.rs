@@ -85,7 +85,6 @@ fn console_installs_inspects_and_evaluates_real_sdk_state() -> Result<(), Box<dy
     Ok(())
 }
 
-
 #[test]
 fn console_claim_evaluation_enforces_persisted_pin_and_epoch_floor() -> Result<(), Box<dyn Error>> {
     let now = SystemTime::now().duration_since(UNIX_EPOCH)?.as_secs();
