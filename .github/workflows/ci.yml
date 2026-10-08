@@ -44,6 +44,29 @@ jobs:
           name: swoosh-rust-sbom
           path: sbom/rust.spdx.json
           if-no-files-found: error
+      - name: Build native conformance tools
+        run: |
+          cargo build --locked -p trust-console
+          cargo build --locked -p proof-pack --example halibut_fixture
+          mkdir -p dist/conformance-tools
+          cp target/debug/trust-console dist/conformance-tools/trust-console
+          cp target/debug/examples/halibut_fixture dist/conformance-tools/halibut-fixture
+          strip dist/conformance-tools/trust-console dist/conformance-tools/halibut-fixture
+          python - <<'PY'
+          import hashlib, json, pathlib, subprocess
+          root = pathlib.Path('dist/conformance-tools')
+          manifest = {'sourceCommit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+                      'platform': 'linux-x86_64', 'purpose': 'synthetic-native-conformance',
+                      'sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.iterdir())}}
+          (root / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Retain native conformance tools
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: swoosh-native-conformance-tools
+          path: dist/conformance-tools/
+          retention-days: 7
+          if-no-files-found: error
 
   protocol:
     runs-on: ubuntu-latest

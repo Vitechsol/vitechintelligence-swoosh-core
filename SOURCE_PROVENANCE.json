@@ -4,7 +4,7 @@
   "status": "public-preview-candidate",
   "targetRepository": "Vitechsol/vitechintelligence-swoosh-core",
   "verifiedAgainstCleanCommit": "37b8ae0d2d69013496a310d0993e9a80c1350265",
-  "generatedDate": "2026-10-06",
+  "generatedDate": "2026-10-09",
   "note": "Exact provenance is recorded for extracted source assets. CI recomputes Git blob hashes for every extractedFiles entry and fails closed on drift. Clean-repository-authored governance/release files are listed separately because SOURCE_PROVENANCE.json cannot self-hash without recursion.",
   "extractedFiles": [
     {
@@ -64,21 +64,23 @@
     },
     {
       "path": "docs/security/THREAT_MODEL.md",
-      "cleanBlobSha": "a8dfe4e3750a83e20affd29a3078ff7db37682e0",
-      "extraction": "exact",
+      "cleanBlobSha": "8887ce58223f243353321a30a09f7dfa5f0222ce",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "docs/security/THREAT_MODEL.md",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "a8dfe4e3750a83e20affd29a3078ff7db37682e0"
+      "sourceBlobSha": "a8dfe4e3750a83e20affd29a3078ff7db37682e0",
+      "modificationNote": "Clarify verifier-versus-enforcement boundary and preview deployment obligations from the October 2026 technical review."
     },
     {
       "path": "docs/testing/PROOF_PACK.md",
-      "cleanBlobSha": "d05a5dea601e595c2ed5045e034f92413023d154",
-      "extraction": "exact",
+      "cleanBlobSha": "773e06f4f1f83407f87cbcab424750db8c376f43",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "docs/testing/PROOF_PACK.md",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
-      "sourceBlobSha": "d05a5dea601e595c2ed5045e034f92413023d154"
+      "sourceBlobSha": "d05a5dea601e595c2ed5045e034f92413023d154",
+      "modificationNote": "Clarify verifier-versus-enforcement boundary and preview deployment obligations from the October 2026 technical review."
     },
     {
       "path": "LICENSES/Apache-2.0.txt",
@@ -477,11 +479,16 @@
   ],
   "cleanRepositoryAuthoredFiles": [
     ".github/CODEOWNERS",
+    ".github/ISSUE_TEMPLATE/bug_report.yml",
+    ".github/ISSUE_TEMPLATE/config.yml",
+    ".github/ISSUE_TEMPLATE/feature_request.yml",
+    ".github/ISSUE_TEMPLATE/question.yml",
+    ".github/PULL_REQUEST_TEMPLATE.md",
     ".github/workflows/ci.yml",
     "BRANCH_PROTECTION.md",
-    "CONTRIBUTING.md",
-    "CODE_OF_CONDUCT.md",
     "CITATION.cff",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
     "LICENSE",
     "NOTICE",
     "README.md",
@@ -489,18 +496,14 @@
     "REUSE.toml",
     "SECURITY.md",
     "SOURCE_PROVENANCE.json",
-    "scripts/check-license-coverage.py",
-    "scripts/generate_sbom.py",
-    ".github/ISSUE_TEMPLATE/bug_report.yml",
-    ".github/ISSUE_TEMPLATE/feature_request.yml",
-    ".github/ISSUE_TEMPLATE/question.yml",
-    ".github/ISSUE_TEMPLATE/config.yml",
-    ".github/PULL_REQUEST_TEMPLATE.md",
     "SUPPORT.md",
-    "docs/releases/v0.1.0-preview.md",
     "docs/LAUNCH_ANNOUNCEMENT.md",
+    "docs/decisions/ADR-0009-VERIFY-DECIDE-MOVE-PROVE-AND-COGNITIVE-ESCALATION.md",
+    "docs/protocol/INTEGRATION_LINEAGE.md",
+    "docs/releases/v0.1.0-preview.md",
     "proof-pack/tests/action_v3.rs",
-    "docs/decisions/ADR-0009-VERIFY-DECIDE-MOVE-PROVE-AND-COGNITIVE-ESCALATION.md"
+    "scripts/check-license-coverage.py",
+    "scripts/generate_sbom.py"
   ],
   "packageMetadataNote": "Rust crates remain publish=false for the preview. Package manifests now advertise MPL-2.0; the protocol Python package advertises Apache-2.0.",
   "migrationNote": "Release repository ownership moved to the Vitechsol organization. Historical sourceRepository entries intentionally retain their original repository identities for provenance.",
@@ -509,5 +512,7 @@
   "communityLaunchNote": "Structured issue forms, pull-request checklist, support routing, and proposal-first contribution guidance were added for public community launch.",
   "discoverabilityNote": "README badges/navigation, release notes, and technical launch announcement were added as public-launch discoverability assets.",
   "hardeningNote": "Action V3 adds cryptographically role-bound authority plus cognitive-profile digest binding while retaining V2 compatibility.",
-  "authorityDoctrineNote": "ADR-0009 records the finalized public authority doctrine: Swoosh is deterministic Verify-Decide-Move-Prove; cognitive ambiguity may escalate to Halibut Intelligence, missing authority fails closed, human-controlled RBAC remains the source of authority changes, and physical safety controls remain additional to Swoosh authorization."
+  "authorityDoctrineNote": "ADR-0009 records the finalized public authority doctrine: Swoosh is deterministic Verify-Decide-Move-Prove; cognitive ambiguity may escalate to Halibut Intelligence, missing authority fails closed, human-controlled RBAC remains the source of authority changes, and physical safety controls remain additional to Swoosh authorization.",
+  "reviewedBaseCommit": "82f3b7460f71d2ba26aef6d9d6cc73f02773562b",
+  "technicalReviewResponseNote": "Broker/isolation/signer custody and physical-safety boundaries are explicit; integration lineage has no compatibility claim. CI exports short-lived synthetic conformance tools for real-verifier testing. No trust-kernel, SDK, console or Proof Pack Rust source changes."
 }
