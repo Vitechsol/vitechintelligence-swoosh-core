@@ -43,6 +43,13 @@ Passing this pack proves deterministic behavior for the implemented profile and 
 
 ## CI-built native integration tools
 
-After the Rust checks pass, CI retains `swoosh-native-conformance-tools` for seven days. It contains Linux x86-64 builds of the reference `trust-console` and the synthetic `halibut-fixture` generator, plus a manifest with the checked-out source commit and binary SHA-256 hashes. The fixture generator creates fresh short-lived test authority when run; it is never a production signer.
+After the Rust checks pass, CI retains `swoosh-native-conformance-tools` for seven days. Its `swoosh-native-conformance-tools.tar.gz` archive preserves executable permissions and contains Linux x86-64 builds of the reference `trust-console` and the synthetic `halibut-fixture` generator, plus a manifest with the checked-out source commit and binary SHA-256 hashes. The fixture generator creates fresh short-lived test authority when run; it is never a production signer.
 
 This artifact lets reviewers exercise the real verifier in a host without a Rust compiler. Obtain it from the expected repository/run, verify its manifest hashes and associate the source commit with that run before execution. On pull requests the checked-out commit may be GitHub's test merge commit. A checksum verifies artifact integrity, not independent provenance or security certification. Source builds remain the default native-conformance path.
+
+After downloading and unzipping the artifact, extract its tar archive:
+
+```bash
+tar -xzf swoosh-native-conformance-tools.tar.gz
+./conformance-tools/trust-console --help
+```

@@ -60,11 +60,12 @@ jobs:
                       'sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.iterdir())}}
           (root / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
           PY
+          tar -czf dist/swoosh-native-conformance-tools.tar.gz -C dist conformance-tools
       - name: Retain native conformance tools
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: swoosh-native-conformance-tools
-          path: dist/conformance-tools/
+          path: dist/swoosh-native-conformance-tools.tar.gz
           retention-days: 7
           if-no-files-found: error
 
