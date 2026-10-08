@@ -29,7 +29,9 @@ Its job is deliberately narrow:
 
 > **Models may reason. Swoosh decides whether protected action is authorized.**
 
-Swoosh is not an AI model, planner or workflow engine. It is the security boundary that determines whether a structured action may proceed.
+Swoosh is not an AI model, planner or workflow engine. It verifies whether a structured action is authorized. Enforcement also requires a trusted effect broker and worker isolation: a worker with direct credentials, network access or device handles can bypass the verifier.
+
+The current preview provides an offline-capable verifier, signed trust state and action-bound receipts. It does not ship a hostile-worker sandbox, production signing service, per-worker identity service or physical safety controller. See the [enforcement boundary](docs/security/THREAT_MODEL.md#enforcement-path-and-root-of-trust) and [integration lineage](docs/protocol/INTEGRATION_LINEAGE.md).
 
 ---
 

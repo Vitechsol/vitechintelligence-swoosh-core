@@ -16,9 +16,9 @@ flowchart TD
 
 All tool/device adapters must be reached through the broker. Routing chooses an eligible backend; it cannot execute a protected action or supply credentials directly. Renewal, revocation, expiry, current-state changes and cancellation are checked before each effect. The local profile supports one transactional record adapter; general remote effect protocols and hostile worker isolation remain release gates.
 
-See [contracts/v1](../contracts/v1/README.md) for the eight foundational contracts plus the packet envelope. They do not contain protected Capsule method content. Runtime state and the signed claim remain authoritative, rather than any `allowed` field in JSON.
+See [contracts/v1](../../protocol/contracts/v1/README.md) for the eight foundational contracts plus the packet envelope. They do not contain protected Capsule method content. Runtime state and the signed claim remain authoritative, rather than any `allowed` field in JSON.
 
-The native v2 envelope is additive. V1 signed bytes, receipts and TrustPack format are preserved. Native conformance tests and no-std/Wasm compile checks live with the Rust source; portable JSON conformance tests live here. Runtime-specific interoperability must pass canonical vectors before being advertised as supported.
+Native Action V2 and V3 are additive. V3 additionally binds the authenticated role and cognitive-profile digest; the Halibut role-bound integration uses `evaluate-action-v3` and accepts receipt profile 3. V1 claim signing bytes and TrustPack format are preserved. Native conformance tests and no-std/Wasm compile checks live with the Rust source; portable JSON conformance tests live here. Runtime-specific interoperability must pass canonical vectors before being advertised as supported.
 
 ## Deterministic authorization boundary
 

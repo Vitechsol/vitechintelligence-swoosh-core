@@ -15,6 +15,31 @@
 
 Private signing keys are explicitly outside this repository and verifier runtime.
 
+## Enforcement path and root of trust
+
+The kernel is a decision component. Its `ALLOW` is enforceable only when a trusted broker mediates every protected effect and workers cannot reach those effects directly. The host authenticates the real caller, chooses trusted time/state, supplies the exact effect binding and performs the final scope/generation/expiry check. A caller-supplied role label is not authentication.
+
+The signer is also part of the trusted deployment: signature verification does not establish that the signer correctly implemented human intent. Production signers must authenticate an authorized human or policy owner, bind the immutable approved objective/scope and never sign authority exceeding that ceiling. Signed Goal Contracts and delegation-attenuation enforcement are target integrations; the current kernel does not implement a Goal Contract issuer.
+
+```mermaid
+flowchart TD
+    Human["Authorized human and policy owner"] --> Signer["External signer and key custody"]
+    Signer --> State["Signed claims and trust state"]
+    Worker["Untrusted worker proposal"] --> Broker["Trusted effect broker"]
+    State --> Kernel["Deterministic Swoosh verifier"]
+    Broker --> Kernel
+    Kernel --> Gate["Exact effect and current authority check"]
+    Gate --> Effect["Protected effect"]
+```
+
+Worker isolation surrounds this path and must prevent alternate access to the protected effect. It is a deployment requirement, not implemented by this diagram or by the zero-I/O kernel. Future integrations must demonstrate denied direct network/API/device/database access, including inherited credentials and file descriptors. Regex guards and model risk scores cannot substitute for that test.
+
+Identity roots, authenticated checkpoint distribution, protected signer keys, trusted clock policy and an independently retained rollback floor define the root of trust. Rolling back the whole host disk/VM together with its local state is outside the current software-only rollback protection. Snapshot-resistant epoch/revocation custody needs an external trusted store or hardware-backed monotonic state.
+
+The kernel does not implement data-flow, egress-volume or rate budgets. Individually allowed operations can still compose into data exfiltration. Brokers and signers must enforce workload-specific destinations, permitted data classes and budgets before exposing remote adapters.
+
+Physical job authorization must stay outside certified machine-safety control loops. Pause/revocation requires a device-specific safe-stop handshake handled by the native safety controller; a verifier denial alone does not stop motion.
+
 ## Trust boundaries
 
 | Boundary | Trusted input | Untrusted input | Control |

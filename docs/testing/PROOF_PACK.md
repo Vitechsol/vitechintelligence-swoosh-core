@@ -40,3 +40,24 @@ A higher-epoch, next-generation root deprecates the old claim key and adds a rot
 ## Interpretation
 
 Passing this pack proves deterministic behavior for the implemented profile and fixtures. It does not replace external review, production key custody, live pilot drills, representative hardware testing, a secure clock strategy or measured performance evidence.
+
+## CI-built native integration tools
+
+After the Rust checks pass, CI retains `swoosh-native-conformance-tools` for seven days. Its `swoosh-native-conformance-tools.tar.gz` archive preserves executable permissions and contains Linux x86-64 builds of the reference `trust-console` and the synthetic `halibut-fixture` generator, plus a manifest with the checked-out source commit and binary SHA-256 hashes. The fixture generator creates fresh short-lived test authority when run; it is never a production signer.
+
+This artifact lets reviewers exercise the real verifier in a host without a Rust compiler. Obtain it from the expected repository/run, verify its manifest hashes and associate the source commit with that run before execution. On pull requests the checked-out commit may be GitHub's test merge commit. A checksum verifies artifact integrity, not independent provenance or security certification. Source builds remain the default native-conformance path.
+
+After downloading and unzipping the artifact, extract its tar archive:
+
+```bash
+tar -xzf swoosh-native-conformance-tools.tar.gz
+./conformance-tools/trust-console --help
+```
+
+CI extracts that same tar archive and exercises the packaged executables, proving the permissions work. `scripts/verify-native-conformance-tools.py` requires one valid V3 `ALLOW`, then checks 14 request mutations for the expected typed authority denial. It covers subject, role, action/resource and every V3 binding field. This is CLI integration evidence, not hostile-worker isolation or Halibut lifecycle conformance.
+
+To repeat these controls locally, supply the expected checked-out source commit obtained from the associated CI run:
+
+```bash
+python scripts/verify-native-conformance-tools.py --tools ./conformance-tools --source-commit FULL_VERIFIED_SOURCE_COMMIT
+```
