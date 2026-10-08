@@ -53,3 +53,11 @@ After downloading and unzipping the artifact, extract its tar archive:
 tar -xzf swoosh-native-conformance-tools.tar.gz
 ./conformance-tools/trust-console --help
 ```
+
+CI extracts that same tar archive and exercises the packaged executables, proving the permissions work. `scripts/verify-native-conformance-tools.py` requires one valid V3 `ALLOW`, then checks 14 request mutations for the expected typed authority denial. It covers subject, role, action/resource and every V3 binding field. This is CLI integration evidence, not hostile-worker isolation or Halibut lifecycle conformance.
+
+To repeat these controls locally, supply the expected checked-out source commit obtained from the associated CI run:
+
+```bash
+python scripts/verify-native-conformance-tools.py --tools ./conformance-tools --source-commit FULL_VERIFIED_SOURCE_COMMIT
+```

@@ -61,6 +61,11 @@ jobs:
           (root / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
           PY
           tar -czf dist/swoosh-native-conformance-tools.tar.gz -C dist conformance-tools
+      - name: Verify packaged V3 tools through the actual CLI
+        run: |
+          mkdir -p "$RUNNER_TEMP/native-conformance-check"
+          tar -xzf dist/swoosh-native-conformance-tools.tar.gz -C "$RUNNER_TEMP/native-conformance-check"
+          python scripts/verify-native-conformance-tools.py --tools "$RUNNER_TEMP/native-conformance-check/conformance-tools" --source-commit "$(git rev-parse HEAD)"
       - name: Retain native conformance tools
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:

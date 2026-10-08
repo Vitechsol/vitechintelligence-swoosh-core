@@ -46,12 +46,13 @@
     },
     {
       "path": "docs/protocol/ARCHITECTURE.md",
-      "cleanBlobSha": "52f09b6362364203adffff66cd0f76c6b2095984",
-      "extraction": "exact",
+      "cleanBlobSha": "c95b5b0cde3ba41bacbfd39113435cca378b566e",
+      "extraction": "modified",
       "sourceRepository": "vitechintelligence/Swoosh-Intelligence-",
       "sourcePath": "docs/ARCHITECTURE.md",
       "sourceCommit": "096d3a63fe747c5b5969c9e2ed0b5e809cac1a4d",
-      "sourceBlobSha": "52f09b6362364203adffff66cd0f76c6b2095984"
+      "sourceBlobSha": "52f09b6362364203adffff66cd0f76c6b2095984",
+      "modificationNote": "Clarify V3 integration and preview enforcement boundaries, correct protocol links and document packaged native CLI verification."
     },
     {
       "path": "docs/security/KEY_MANAGEMENT.md",
@@ -74,13 +75,13 @@
     },
     {
       "path": "docs/testing/PROOF_PACK.md",
-      "cleanBlobSha": "541215dafb8b4b7fde27023e4cd96396bc03e39b",
+      "cleanBlobSha": "022d24f3616069bf6f19ee78c04faec843848a37",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "docs/testing/PROOF_PACK.md",
       "sourceCommit": "be96771278ac205ad90518744c43f0850963f462",
       "sourceBlobSha": "d05a5dea601e595c2ed5045e034f92413023d154",
-      "modificationNote": "Clarify deployment requirements and document CI conformance tools with executable-preserving packaging."
+      "modificationNote": "Clarify V3 integration and preview enforcement boundaries, correct protocol links and document packaged native CLI verification."
     },
     {
       "path": "LICENSES/Apache-2.0.txt",
@@ -503,7 +504,8 @@
     "docs/releases/v0.1.0-preview.md",
     "proof-pack/tests/action_v3.rs",
     "scripts/check-license-coverage.py",
-    "scripts/generate_sbom.py"
+    "scripts/generate_sbom.py",
+    "scripts/verify-native-conformance-tools.py"
   ],
   "packageMetadataNote": "Rust crates remain publish=false for the preview. Package manifests now advertise MPL-2.0; the protocol Python package advertises Apache-2.0.",
   "migrationNote": "Release repository ownership moved to the Vitechsol organization. Historical sourceRepository entries intentionally retain their original repository identities for provenance.",
@@ -514,5 +516,5 @@
   "hardeningNote": "Action V3 adds cryptographically role-bound authority plus cognitive-profile digest binding while retaining V2 compatibility.",
   "authorityDoctrineNote": "ADR-0009 records the finalized public authority doctrine: Swoosh is deterministic Verify-Decide-Move-Prove; cognitive ambiguity may escalate to Halibut Intelligence, missing authority fails closed, human-controlled RBAC remains the source of authority changes, and physical safety controls remain additional to Swoosh authorization.",
   "reviewedBaseCommit": "82f3b7460f71d2ba26aef6d9d6cc73f02773562b",
-  "technicalReviewResponseNote": "Broker/isolation/signer custody and physical-safety boundaries are explicit; integration lineage has no compatibility claim. CI exports short-lived synthetic conformance tools for real-verifier testing. No trust-kernel, SDK, console or Proof Pack Rust source changes."
+  "technicalReviewResponseNote": "Broker/isolation/signer custody and physical-safety boundaries are explicit; integration lineage has no compatibility claim. CI verifies tar-extracted native tools with one valid V3 receipt and 14 typed negative controls. No trust-kernel, SDK, console or Proof Pack Rust source changes."
 }
