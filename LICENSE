@@ -8,4 +8,4 @@ See:
 - LICENSES/Apache-2.0.txt
 - REUSE.toml
 
-This repository remains private release staging until the human release checklist is completed.
+Repository visibility is PUBLIC. Formal v0.1.0-preview tagging and human security/legal sign-off are tracked separately; public availability does not imply certified production readiness.
