@@ -30,3 +30,9 @@ Link the issue or proposal. Significant authority, protocol, trust, or interoper
 ## Contributor note
 
 By submitting this pull request, you confirm that you have the right to contribute the submitted material under the repository's applicable licenses.
+
+## Contributor rights (maintainer gate)
+
+- [ ] I have identified any third-party/employer-owned material in this PR, and have permission to contribute it.
+- [ ] Maintainer: verified signed CLA or other sufficient grant/rights documentation **where applicable**; see [draft CLA workflow](../docs/contributing/CLA_ACCEPTANCE.md). A checked box here is **not** a CLA signature.
+- [ ] Maintainer: third-party dependency licenses and historical authorship reviewed for this change.

@@ -453,6 +453,21 @@ evidence
 
 ## Licensing
 
+### Component license quick reference
+
+| Component or path | License | Commercial note |
+|---|---|---|
+| `trust-kernel/` | MPL-2.0 | File-level copyleft for distributed modified covered files |
+| `trust-sdk/` | MPL-2.0 | May be incorporated into larger commercial works subject to MPL obligations |
+| `trust-console/` (reference CLI) | MPL-2.0 | Already published CLI remains available to recipients under MPL |
+| `proof-pack/` | MPL-2.0 | Open validation framework |
+| `protocol/`, `docs/` | Apache-2.0 | Public interoperability and documentation assets |
+| Private ViTech Enterprise modules (not in this repo) | Separate terms | Not part of this public license grant |
+
+Licenses are assigned by the authoritative [REUSE.toml](REUSE.toml); full texts are in `LICENSES/`. Future changes to licensing require adequate rights from every copyright holder and cannot revoke valid licenses already granted.
+
+**Outside contributors:** see the [draft CLA](CLA.md) and [acceptance workflow](docs/contributing/CLA_ACCEPTANCE.md). Signature enforcement is **not yet activated**; a PR checkbox is not a legal signature.
+
 Swoosh Core uses **per-path licensing**.
 
 ### MPL-2.0
