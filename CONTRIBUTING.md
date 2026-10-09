@@ -38,6 +38,10 @@ python -m venv .venv
 
 By participating, contributors agree to follow `CODE_OF_CONDUCT.md`.
 
+## External contribution rights — pending legal activation
+
+ViTech has proposed a [Contributor License Agreement](CLA.md) and a documented [acceptance workflow](docs/contributing/CLA_ACCEPTANCE.md). They are **drafts, not yet an operative signature process**. Until final legal review and verified acceptance are in place, maintainers will not merge outside copyrightable contributions when ViTech lacks the documented rights required for future relicensing. A PR checkbox or ordinary GitHub participation does **not** sign a CLA. Existing open-source grants remain valid.
+
 ## Proposal-first changes
 
 Before coding a substantial change to authority semantics, protocol contracts, cryptographic/trust assumptions, or interoperability behavior, open a **Feature or architecture proposal** issue first.
