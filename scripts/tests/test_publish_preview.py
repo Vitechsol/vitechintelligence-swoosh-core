@@ -20,8 +20,9 @@ class ReleaseGateTests(unittest.TestCase):
         policy=json.loads((SCRIPT.parents[1]/'.github/release-policy.json').read_text())
         self.repo={"private":False,"default_branch":"main"}
         self.branch={"protected":True,"commit":{"sha":self.head}}
+        self.rules=[{"type":"required_status_checks","parameters":{"required_status_checks":copy.deepcopy(policy['requiredStatusChecks'])}}]
         self.pull={"merged":True,"base":{"ref":"main"},"merge_commit_sha":self.head,"head":{"sha":self.reviewed},"user":{"login":"owner"}}
-        self.reviews=[{"user":{"type":"User","login":"independent"},"state":"APPROVED","commit_id":self.reviewed,"html_url":"https://github.com/review"}]
+        self.reviews=[{"user":{"type":"User","login":"independent"},"author_association":"COLLABORATOR","state":"APPROVED","commit_id":self.reviewed,"html_url":"https://github.com/review"}]
         self.runs=[];self.jobs={}
         for number,name in enumerate(policy['requiredWorkflows'],1):
             self.runs.append({"id":number,"name":name,"head_sha":self.head,"head_branch":"main","status":"completed","conclusion":"success","html_url":"https://github.com/run/"+str(number)})
@@ -37,6 +38,7 @@ class ReleaseGateTests(unittest.TestCase):
             else:raise AssertionError(path)
         elif path=='':data=self.repo
         elif path=='/branches/main':data=self.branch
+        elif path=='/rules/branches/main':data=self.rules
         elif path=='/pulls/13':data=self.pull
         elif path=='/pulls/13/reviews':data=self.reviews
         elif path=='/actions/runs':data={"workflow_runs":self.runs}
@@ -77,6 +79,31 @@ class ReleaseGateTests(unittest.TestCase):
 
     def test_green_workflow_with_skipped_required_step_cannot_publish(self):
         self.jobs['1']['jobs'][0]['steps'][0]['conclusion']='skipped';self.blocked()
+
+    def test_unaffiliated_or_missing_reviewer_authority_cannot_publish(self):
+        for association in ('NONE','CONTRIBUTOR','FIRST_TIME_CONTRIBUTOR','FIRST_TIMER'):
+            self.reviews[0]['author_association']=association;self.blocked()
+        self.reviews[0].pop('author_association');self.blocked()
+
+    def test_each_authorized_reviewer_association_can_publish(self):
+        for association in ('OWNER','MEMBER','COLLABORATOR'):
+            with self.subTest(association=association):
+                self.posts=[];self.tag=None;self.release=None
+                self.reviews[0]['author_association']=association
+                self.run_publish()
+                self.assertEqual([path for path,_ in self.posts],['/git/refs','/releases'])
+
+    def test_later_change_request_blocks_previous_authorized_approval(self):
+        self.reviews.append({**self.reviews[0],'state':'CHANGES_REQUESTED'})
+        self.blocked()
+
+    def test_uninstalled_required_contributor_check_blocks_publication(self):
+        self.rules[0]['parameters']['required_status_checks']=[item for item in self.rules[0]['parameters']['required_status_checks'] if item['context']!='contributor-rights']
+        self.blocked()
+
+    def test_check_from_wrong_integration_does_not_satisfy_policy(self):
+        self.rules[0]['parameters']['required_status_checks'][0]['integration_id']=999
+        self.blocked()
 
     def test_missing_failed_or_wrong_sha_run_cannot_publish(self):
         original=copy.deepcopy(self.runs)

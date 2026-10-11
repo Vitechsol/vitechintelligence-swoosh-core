@@ -527,7 +527,9 @@
     ".github/workflows/publish-preview.yml",
     "docs/engineering/RELEASE-CLOSEOUT.md",
     "scripts/publish-verified-preview.py",
-    "scripts/tests/test_publish_preview.py"
+    "scripts/tests/test_publish_preview.py",
+    "docs/engineering/SWOOSH_MAIN_RULESET.json",
+    "docs/engineering/LEGAL-ACTIVATION-DECISIONS.md"
   ],
   "packageMetadataNote": "Rust crates remain publish=false for the preview. Package manifests now advertise MPL-2.0; the protocol Python package advertises Apache-2.0.",
   "migrationNote": "Release repository ownership moved to the Vitechsol organization. Historical sourceRepository entries intentionally retain their original repository identities for provenance.",
@@ -548,5 +550,7 @@
       "license": "MIT",
       "scope": "separate pinned POSIX simulation dependency; not copied into this repository"
     }
-  ]
+  ],
+  "governanceCloseoutBaseCommit": "72d68153a333d35ceff47779d37c8cbcef423c38",
+  "governanceCloseoutNote": "Explicit 64-bit FreeRTOS tick configuration and authorized repository-association release review checks; updated factual release checklist and prepared main ruleset. CLA remains draft with zero acceptances; no human approval or applied settings is asserted."
 }

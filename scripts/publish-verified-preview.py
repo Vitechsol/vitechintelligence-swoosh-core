@@ -25,6 +25,12 @@ def main():
     policy=json.loads((root/".github/release-policy.json").read_text())
     if policy.get("schemaVersion")!=1 or policy.get("branch")!="main" or policy.get("tag")!="v0.1.0-preview" or not policy.get("requiredWorkflows"):
         raise SystemExit("unsupported release policy")
+    reviewer_associations=policy.get("authorizedReviewerAssociations")
+    if not isinstance(reviewer_associations,list) or not reviewer_associations or not all(value in {"OWNER","MEMBER","COLLABORATOR"} for value in reviewer_associations):
+        raise SystemExit("authorized reviewer policy is required")
+    required_checks=policy.get("requiredStatusChecks")
+    if not isinstance(required_checks,list) or not required_checks or any(not isinstance(item,dict) or not isinstance(item.get("context"),str) or not item["context"] or type(item.get("integration_id")) is not int for item in required_checks):
+        raise SystemExit("required repository status policy is required")
     head=subprocess.check_output(["git","rev-parse","HEAD"],cwd=root,text=True).strip()
     if not re.fullmatch(r"[0-9a-f]{40}",head):raise SystemExit("invalid source SHA")
     base="https://api.github.com/repos/"+repository
@@ -37,6 +43,12 @@ def main():
     repo=api("");branch=api("/branches/main")
     if repo.get("private") is not False or repo.get("default_branch")!="main" or branch.get("protected") is not True or branch.get("commit",{}).get("sha")!=head:
         raise SystemExit("public, protected, exact main is required before preview publication")
+    rules=api("/rules/branches/main?per_page=100")
+    if not isinstance(rules,list) or len(rules)>=100:
+        raise SystemExit("complete effective main-rule evidence is required")
+    installed={(item.get("context"),item.get("integration_id")) for rule in rules if isinstance(rule,dict) and rule.get("type")=="required_status_checks" for item in rule.get("parameters",{}).get("required_status_checks",[]) if isinstance(item,dict)}
+    if any((item["context"],item["integration_id"]) not in installed for item in required_checks):
+        raise SystemExit("required contributor and CI checks must be installed before publication")
     pull=api("/pulls/"+str(args.reviewed_pr))
     if not pull.get("merged") or pull.get("base",{}).get("ref")!="main" or pull.get("merge_commit_sha")!=head:
         raise SystemExit("candidate must be the resulting main commit of the reviewed PR")
@@ -48,8 +60,8 @@ def main():
         # Comments do not dismiss an approval; actual dismissals/change requests do.
         if user.get("type")=="User" and review.get("state") in {"APPROVED","CHANGES_REQUESTED","DISMISSED"}:
             latest[user.get("login")]=review
-    approved=[r for r in latest.values() if r.get("state")=="APPROVED" and r.get("commit_id")==pull["head"]["sha"] and r.get("user",{}).get("login")!=pull["user"]["login"]]
-    if not approved:raise SystemExit("recorded independent human approval of the exact PR head is required")
+    approved=[r for r in latest.values() if r.get("state")=="APPROVED" and r.get("commit_id")==pull["head"]["sha"] and r.get("user",{}).get("login")!=pull["user"]["login"] and r.get("author_association") in reviewer_associations]
+    if not approved:raise SystemExit("recorded authorized independent human approval of the exact PR head is required")
     if any(r.get("state")=="CHANGES_REQUESTED" for r in latest.values()):raise SystemExit("unresolved human change request blocks publication")
     runs=api("/actions/runs?head_sha="+head+"&event=push&per_page=100")
     evidence=[]

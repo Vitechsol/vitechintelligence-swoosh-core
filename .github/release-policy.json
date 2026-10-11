@@ -35,5 +35,28 @@
         ]
       }
     ]
-  }
+  },
+  "authorizedReviewerAssociations": [
+    "OWNER",
+    "MEMBER",
+    "COLLABORATOR"
+  ],
+  "requiredStatusChecks": [
+    {
+      "context": "rust",
+      "integration_id": 15368
+    },
+    {
+      "context": "protocol",
+      "integration_id": 15368
+    },
+    {
+      "context": "rtos-reference",
+      "integration_id": 15368
+    },
+    {
+      "context": "contributor-rights",
+      "integration_id": 15368
+    }
+  ]
 }
