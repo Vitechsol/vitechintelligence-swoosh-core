@@ -529,7 +529,9 @@
     "scripts/publish-verified-preview.py",
     "scripts/tests/test_publish_preview.py",
     "docs/engineering/SWOOSH_MAIN_RULESET.json",
-    "docs/engineering/LEGAL-ACTIVATION-DECISIONS.md"
+    "docs/engineering/LEGAL-ACTIVATION-DECISIONS.md",
+    "docs/COMMERCIAL-LICENSING.md",
+    "docs/engineering/HUMAN-REVIEW-EVIDENCE.md"
   ],
   "packageMetadataNote": "Rust crates remain publish=false for the preview. Package manifests now advertise MPL-2.0; the protocol Python package advertises Apache-2.0.",
   "migrationNote": "Release repository ownership moved to the Vitechsol organization. Historical sourceRepository entries intentionally retain their original repository identities for provenance.",
@@ -552,5 +554,7 @@
     }
   ],
   "governanceCloseoutBaseCommit": "72d68153a333d35ceff47779d37c8cbcef423c38",
-  "governanceCloseoutNote": "Explicit 64-bit FreeRTOS tick configuration and authorized repository-association release review checks; updated factual release checklist and prepared main ruleset. CLA remains draft with zero acceptances; no human approval or applied settings is asserted."
+  "governanceCloseoutNote": "Explicit 64-bit FreeRTOS tick configuration and authorized repository-association release review checks; updated factual release checklist and prepared main ruleset. CLA remains draft with zero acceptances; no human approval or applied settings is asserted.",
+  "commercialPolicyNote": "Owner-directed commercial rights policy preserves existing MPL/Apache grants and requires separate agreement for additional ViTech-controlled rights. Draft CLA is not activated.",
+  "humanReviewEvidence": "docs/engineering/HUMAN-REVIEW-EVIDENCE.md"
 }

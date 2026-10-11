@@ -21,3 +21,5 @@ PR #12's recorded do-not-merge conditions remain unresolved. Keep that PR draft 
 For human technical closeout, an authorized independent repository owner, member or collaborator must approve the final PR head. An AI review, an unrelated public account, the PR author's approval or the current work-session authorization does not supply that recorded review.
 
 Related: PR #12, CONTRIBUTOR-RIGHTS.md, RELEASE-CLOSEOUT.md and RELEASE_CHECKLIST.md.
+
+Completed historical human review and the owner publication instruction are recorded in HUMAN-REVIEW-EVIDENCE.md. They do not establish unresolved entity, counsel, contributor-assent or final-head review evidence. See ../COMMERCIAL-LICENSING.md for the additional rights subject to ViTech agreement.

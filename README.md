@@ -9,6 +9,8 @@
 
 ## Start here
 
+Licensing: [Commercial licensing and reserved ViTech rights](docs/COMMERCIAL-LICENSING.md) explains the MPL-2.0 / Apache-2.0 permissions, ViTech approval for additional contractual rights, and the separate draft-CLA process. [Human review evidence](docs/engineering/HUMAN-REVIEW-EVIDENCE.md) records the completed historical review and later candidate dispositions.
+
 **11 October foundation update:** an allocation-free C execution gate and single-core FreeRTOS broker adapter are available under `rtos/`. Native conformance connects canonical pinned Action V3 ALLOW to the gate. A real FreeRTOS POSIX test covers broker/worker routing, one-shot dispatch, replay, halt and resume. These are software reference tests; hardware MPU isolation, board timing and physical safety remain commissioning gates. See [RTOS engineering](docs/engineering/RTOS-FOUNDATION.md).
 
 | Goal | Route |

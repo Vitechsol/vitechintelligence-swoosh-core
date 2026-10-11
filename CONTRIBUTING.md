@@ -1,5 +1,7 @@
 # Contributing
 
+Read [Commercial licensing and reserved ViTech rights](docs/COMMERCIAL-LICENSING.md) before proposing work for inclusion in an alternative commercial licence. The proposed CLA in PR #12 remains **DRAFT / NOT EFFECTIVE**. An ordinary PR or checkbox does not execute it. Historical and pending contributions require explicit rights review; do not presume future proprietary relicensing permission.
+
 Read `README.md`, `SECURITY.md`, `docs/security/THREAT_MODEL.md` and the ADRs before changing authority-sensitive code.
 
 Preserve:

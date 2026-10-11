@@ -16,7 +16,9 @@
 - [x] PR #13 base candidate `72d68153a333d35ceff47779d37c8cbcef423c38` has successful Rust, protocol and RTOS-reference jobs in run 38146106994.
 - [x] Halibut branch candidate `93e50ab5e621dea2efb9ebb8ea027df2cf679761` has recorded foundation/native CI 38146270502 / 38146270561 against that exact SWOOSH pin.
 - [x] Current closeout patch tested locally: 20 contribution/publication tests, bounded C gate tests, actual pinned FreeRTOS POSIX broker/worker replay/halt/resume tests.
-- [ ] New closeout head CI successful with all required jobs and mandatory steps executed.
+- [x] Closeout candidate `dcdc24408d045ef0199368cb1f4f2fc74a5fca8a` passed Rust, protocol and RTOS-reference jobs and mandatory steps in run 38168269819. Later commits require their own run.
+- [x] Human code/design review completed for the supplied 9 October snapshots, as confirmed by the owner; scope and findings recorded in `docs/engineering/HUMAN-REVIEW-EVIDENCE.md`.
+- [ ] Final commercial-policy/evidence candidate CI successful with all required jobs and mandatory steps executed.
 - [ ] Fresh independent authorized human technical review of the final PR head; older or automated reviews do not substitute.
 - [ ] Sufficient package rights and distribution/notices review recorded. Proposed CLA remains draft until its separate legal conditions are satisfied.
 - [ ] Reviewed changes merged through existing branch controls.
@@ -28,7 +30,7 @@
 
 - [ ] Contributor-rights workflow installed on trusted main and rehearsed on real PRs. External work remains blocked while the CLA is draft; no signatures are invented.
 - [ ] Add required rtos-reference and contributor-rights checks using the prepared SWOOSH_MAIN_RULESET.json without dropping existing protections. Install the contributor-rights requirement only after its trusted-base workflow exists and produces a head-bound status.
-- [ ] Owner publication instruction linked to the final verified candidate; execution was authorized in the current work session.
+- [x] Owner explicitly authorized commercial-policy alignment, verification and publication in the current work session. This authorization is not a contributor signature or independent final-head review.
 - [ ] Run the reviewed main-only publication workflow after its authorized independent review and exact-main gates pass.
 - [ ] Immutable v0.1.0-preview tag resolves to the approved commit.
 - [ ] GitHub prerelease includes source, CI/review evidence, licenses and accurate developer-preview limits.

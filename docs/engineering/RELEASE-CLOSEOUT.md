@@ -34,3 +34,7 @@ RELEASE_CHECKLIST.md now distinguishes published baseline evidence, branch evide
 PR #12 remains draft. LEGAL-ACTIVATION-DECISIONS.md identifies the entity, terms, pending/historical rights and genuine signature evidence needed. The work-session authorization does not fabricate those records or independent technical approval.
 
 Publication additionally reads GitHub effective main rules and refuses release unless all four required status contexts are installed and bound to the expected Actions integration. A prepared JSON file and the protected flag alone are insufficient.
+
+## Commercial policy and completed review record
+
+The owner confirmed completed human review and authorized publication. HUMAN-REVIEW-EVIDENCE.md records the supplied report's exact reviewed revisions, limitations and finding dispositions. The completed historical review is checked off; final candidate approval remains a distinct repository gate. ../COMMERCIAL-LICENSING.md reserves ViTech's additional contractual rights while preserving existing MPL/Apache permissions. No general approval requirement is imposed on compliant public-license use.
