@@ -9,6 +9,10 @@ authors.workspace = true
 repository.workspace = true
 license.workspace = true
 
+[features]
+default = []
+raw-compatibility = []
+
 [dependencies]
 serde.workspace = true
 trust-kernel = { path = "../trust-kernel" }

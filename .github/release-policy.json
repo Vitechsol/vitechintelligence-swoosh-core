@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "branch": "main",
+  "tag": "v0.1.0-preview",
+  "requiredWorkflows": [
+    "Swoosh Core CI"
+  ],
+  "requiredJobs": {
+    "Swoosh Core CI": [
+      {
+        "name": "rust",
+        "steps": [
+          "Run cargo fmt --all --check",
+          "Run cargo clippy --locked --workspace --all-targets -- -D warnings",
+          "Run cargo test --locked --workspace --all-targets",
+          "Run cargo audit --deny warnings",
+          "Verify release license coverage",
+          "Verify packaged V3 tools through the actual CLI",
+          "Verify canonical V3 to bounded RTOS gate"
+        ]
+      },
+      {
+        "name": "protocol",
+        "steps": [
+          "Protocol conformance"
+        ]
+      },
+      {
+        "name": "rtos-reference",
+        "steps": [
+          "Verify FreeRTOS source pin",
+          "Test bounded gate invariants",
+          "Test contributor and publication gates",
+          "Run real FreeRTOS POSIX tasks"
+        ]
+      }
+    ]
+  }
+}

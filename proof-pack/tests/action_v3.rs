@@ -8,6 +8,39 @@ use trust_kernel::{
 };
 use trust_sdk::InstalledTrustContext;
 
+#[test]
+fn internally_valid_attacker_root_cannot_replace_external_pin() -> Result<(), Box<dyn Error>> {
+    let original = fixture()?;
+    let attacker = SigningKey::from_bytes(&[43; 32]);
+    let mut pack = original.signed_pack.pack.clone();
+    pack.trust_epoch = 2;
+    pack.status.sequence = 2;
+    for anchor in &mut pack.root.anchors {
+        if anchor.purpose == trust_kernel::KeyPurpose::TrustPackSigning {
+            anchor.public_key = attacker.verifying_key().to_bytes();
+        }
+    }
+    let signed = proof_pack::sign_pack(
+        pack,
+        &attacker,
+        original.signed_pack.signer_issuer_id.clone(),
+        original.signed_pack.signer_key_id.clone(),
+    )?;
+    let bytes = trust_kernel::encode_trust_pack(&signed)?;
+    // Positive control: the attacker pack is well-formed and internally signed.
+    assert!(trust_kernel::inspect_trust_pack(&bytes, EVALUATION_TIME).is_ok());
+    let checkpoint = original.signed_pack.checkpoint()?;
+    assert!(InstalledTrustContext::install_at(&bytes, &checkpoint, EVALUATION_TIME).is_err());
+    let mut installed =
+        InstalledTrustContext::install_at(&original.pack_bytes, &checkpoint, EVALUATION_TIME)?;
+    assert!(installed.update_at(&bytes, EVALUATION_TIME).is_err());
+    assert_eq!(installed.metadata().trust_epoch, 1);
+    assert!(installed
+        .evaluate_claim_at(&original.claim_bytes, EVALUATION_TIME)
+        .is_ok());
+    Ok(())
+}
+
 fn signed_action() -> Result<(proof_pack::Fixture, SignedActionV3, ActionRequestV3), Box<dyn Error>>
 {
     let fixture = fixture()?;

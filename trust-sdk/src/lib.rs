@@ -111,10 +111,12 @@ impl From<TrustError> for SdkError {
     }
 }
 
-/// Evaluates raw canonical claim and TrustPack buffers using the host's current Unix clock.
+/// Legacy raw evaluation, available only with the explicit `raw-compatibility` feature.
 ///
-/// The SDK intentionally forwards the borrowed buffers to the canonical kernel. It does not
-/// reproduce parsing, cryptographic verification, freshness, revocation, or policy semantics.
+/// This call does not establish an externally trusted root. Commercial hosts use
+/// `InstalledTrustContext` and retain the bootstrap checkpoint and epoch floor
+/// outside worker control. Canonical kernel algorithms and wire bytes are unchanged.
+#[cfg(feature = "raw-compatibility")]
 pub fn evaluate_claim(claim_bytes: &[u8], trust_pack: &[u8]) -> Result<DecisionReceipt, SdkError> {
     let evaluation_time = unix_time_now()?;
     trust_kernel::evaluate_claim(claim_bytes, trust_pack, evaluation_time).map_err(Into::into)

@@ -1,0 +1,34 @@
+name: Publish verified preview
+on:
+  workflow_dispatch:
+    inputs:
+      reviewed_pr:
+        description: Merged PR with independent human approval of its exact final head
+        required: true
+        type: number
+permissions:
+  contents: write
+  actions: read
+  pull-requests: read
+concurrency:
+  group: publish-verified-preview
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Verify release gates and publish immutable developer preview
+        env:
+          PREVIEW_REPOSITORY: ${{ github.repository }}
+          PREVIEW_GITHUB_TOKEN: ${{ github.token }}
+          PREVIEW_REVIEWED_PR: ${{ inputs.reviewed_pr }}
+        run: python scripts/publish-verified-preview.py --reviewed-pr "$PREVIEW_REVIEWED_PR"

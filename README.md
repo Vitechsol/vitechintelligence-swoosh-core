@@ -9,6 +9,8 @@
 
 ## Start here
 
+**11 October foundation update:** an allocation-free C execution gate and single-core FreeRTOS broker adapter are available under `rtos/`. Native conformance connects canonical pinned Action V3 ALLOW to the gate. A real FreeRTOS POSIX test covers broker/worker routing, one-shot dispatch, replay, halt and resume. These are software reference tests; hardware MPU isolation, board timing and physical safety remain commissioning gates. See [RTOS engineering](docs/engineering/RTOS-FOUNDATION.md).
+
 | Goal | Route |
 |---|---|
 | **Try Swoosh** | [Quick start](#quick-start) |
@@ -454,6 +456,13 @@ evidence
 ## Licensing
 
 Swoosh Core uses **per-path licensing**.
+
+| Actual path | Current license |
+| --- | --- |
+| `trust-kernel/`, `trust-sdk/`, `trust-console/`, `proof-pack/`, `rtos/` | MPL-2.0 |
+| `protocol/`, `docs/`, repository governance paths | Apache-2.0 |
+
+The current SDK is MPL-2.0. No SDK relicensing is performed by this update. The proposed CLA remains draft in [PR #12](https://github.com/Vitechsol/vitechintelligence-swoosh-core/pull/12). The [contributor-rights check](docs/engineering/CONTRIBUTOR-RIGHTS.md) blocks unverified external work; its registry currently contains no accepted CLA signatures. It becomes a required merge gate only when installed on the protected base and configured in repository rules.
 
 ### MPL-2.0
 

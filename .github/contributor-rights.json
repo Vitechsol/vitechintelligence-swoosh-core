@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "maintainerAccounts": ["vitechintelligence"],
+  "cla": {"status": "draft", "agreementDigest": null, "proposal": "https://github.com/Vitechsol/vitechintelligence-swoosh-core/pull/12"},
+  "acceptances": [],
+  "note": "No CLA is active and no signatures are claimed. Maintainer-originated work is separately reviewed for source provenance. External work remains blocked until reviewed terms and verifiable acceptance records exist. This file never grants rights to third-party code."
+}
