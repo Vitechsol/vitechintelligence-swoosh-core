@@ -12,6 +12,8 @@ Preserve:
 
 Do not add secrets, customer data, signing keys, protected Capsule content or enterprise control-plane code.
 
+**Private runtime exclusion:** Do not submit C/FreeRTOS gate implementations, ViRTOS scheduler or broker code, hardware drivers, MPU/transport/safety integration, or proprietary RTOS designs to this public repository. Public-facing interoperability contracts and tests may be proposed after maintainer review. A public issue/PR is not a confidential channel. The proposed CLA in PR #12 remains draft and does not itself establish proprietary sublicensing rights.
+
 ## Local setup
 
 ```bash

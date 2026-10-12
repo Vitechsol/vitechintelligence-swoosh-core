@@ -6,6 +6,8 @@
 
 > **Developer-preview release candidate — `v0.1.0-preview`**  
 > Publication/tagging is controlled by `RELEASE_CHECKLIST.md`. Not an industrial or functional-safety certification.
+>
+> **Open-core boundary:** Public `main` contains SWOOSH's Rust authority kernel, SDK, protocol and Proof Pack. It does **not** include the ViRTOS/RTOS runtime, FreeRTOS C gate/adapter implementation, MCU drivers, private execution scheduler or hardware safety integration. Those implementation areas are reserved for separate ViTech private development. Public protocol interoperability does not grant proprietary code access. Historical copies already distributed under public licences retain applicable rights.
 
 ## Start here
 

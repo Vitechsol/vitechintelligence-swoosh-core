@@ -1,11 +1,13 @@
-ViTech Swoosh Core uses per-path licensing.
+ViTech SWOOSH Core uses per-path licensing.
 
-Canonical local trust/enforcement implementation is licensed under Mozilla Public License 2.0.
-Public protocol, schemas, fixtures, documentation and conformance interfaces are licensed under Apache License 2.0.
+Canonical Rust local trust/enforcement implementation, SDK, reference CLI and Proof Pack are licensed under Mozilla Public License 2.0. Public protocol, schemas, fixtures, documentation and conformance interfaces are licensed under Apache License 2.0 as mapped in REUSE.toml.
 
 See:
 - LICENSES/MPL-2.0.txt
 - LICENSES/Apache-2.0.txt
 - REUSE.toml
+- NOTICE
 
-This repository remains private release staging until the human release checklist is completed.
+This repository is PUBLIC. Its source code is available under the applicable licences, but no official `v0.1.0-preview` release is implied until the release checklist is completed and a tag/release is published.
+
+RTOS/ViRTOS/FreeRTOS implementation and physical-device safety integrations are excluded from the public `main` release. This statement does not retroactively change the licensing of any earlier publicly distributed material. Licence-compliant use of SWOOSH open-core source does not require separate ViTech permission; rights to excluded proprietary material and official ViTech trademarks are not granted here.
