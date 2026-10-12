@@ -13,9 +13,11 @@
 
 ## RTOS / proprietary boundary
 
-- [ ] Retire unmerged public PR #13 without merging its `rtos/` implementation. Private working reference is preserved in the separate ViTech personal-account ViRTOS repository.
-- [ ] Remove the publicly accessible RTOS engineering branch after an owner-approved exposure/rights assessment; closing PR/deleting a branch does not revoke any already-effective open-source grant or all copies/caches/PR refs.
-- [ ] Confirm no other public release branches/tags/artifacts mirror RTOS source, including any future CI publication path.
+- [x] PR #13 closed **unmerged**. Exact C/FreeRTOS reference copied with source identity to private personal-account ViRTOS draft PR #2.
+- [x] Former RTOS engineering branch was reset with an expected-SHA lease to public baseline `4ebbcf7dc8f947451a4bb557e01bf2096823e4b4` and its current tree contains no `rtos/` code. The branch itself still exists; historical PR/commit views, caches, clones and licences may persist.
+- [ ] Delete the now-clean obsolete engineering branch after owner review; this does not expunge historical references or rights.
+- [x] All currently enumerated public branch-tip trees inspected; none contains `rtos/` code or the native RTOS bridge script.
+- [ ] Review historical PR refs/caches/forks and any artifacts for residual RTOS disclosures, and prohibit future CI/publication mirroring of private code.
 - [ ] Keep future ViRTOS scheduling, RTOS adaptation and device execution engineering private, in separate modules with reviewed rights/terms. No retroactive exclusivity claim for already-distributed MPL-covered files.
 
 ## Official preview publication gates
