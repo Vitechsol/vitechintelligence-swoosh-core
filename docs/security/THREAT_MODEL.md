@@ -40,6 +40,14 @@ The kernel does not implement data-flow, egress-volume or rate budgets. Individu
 
 Physical job authorization must stay outside certified machine-safety control loops. Pause/revocation requires a device-specific safe-stop handshake handled by the native safety controller; a verifier denial alone does not stop motion.
 
+## Review finding: unpinned evaluation APIs
+
+The low-level public `trust_kernel::evaluate_claim`, `evaluate_action_v2` and `evaluate_action_v3` functions validate a signed TrustPack using the root embedded in that same pack. If a caller allows an untrusted worker to choose the pack bytes, an attacker can supply a self-signed root and matching claim and receive an `ALLOW`. Integrity of the pack is not proof that its root is authorized.
+
+For application authorization, construct `PinnedTrustPack::verify_initial` using an independently provisioned checkpoint, then apply candidates only through `verify_update`; the SDK equivalent is `InstalledTrustContext::install_at` followed by verified updates. The expected checkpoint and any authoritative epoch floor must remain outside worker control.
+
+**Residual hardening item:** the raw kernel evaluators remain public in this preview. Documentation and a pinned wrapper reduce accidental misuse but do not prevent a caller from choosing the raw path. Do not expose these APIs directly to workers or claim that all public verifier entry points enforce an external pin. Restricting or feature-gating raw entry points requires a follow-up API change and full downstream test migration.
+
 ## Trust boundaries
 
 | Boundary | Trusted input | Untrusted input | Control |
