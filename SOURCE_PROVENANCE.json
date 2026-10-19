@@ -469,7 +469,7 @@
     },
     {
       "path": "trust-sdk/src/lib.rs",
-      "cleanBlobSha": "e2023ee4dc334d2647ca35098fdc83ac2362e42c",
+      "cleanBlobSha": "c33103a1450ac46d750463ad2628bb7d0efefa62",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-sdk/src/lib.rs",
