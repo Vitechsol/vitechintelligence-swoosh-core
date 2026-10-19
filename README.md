@@ -113,6 +113,12 @@ BROKERED EFFECT
 EVIDENCE / RECEIPT
 ```
 
+### TrustPack entry-point safety
+
+Use `trust_sdk::InstalledTrustContext` or `trust_kernel::PinnedTrustPack` for application authorization. The low-level `trust_kernel::evaluate_claim`, `evaluate_action_v2`, `evaluate_action_v3` and raw SDK convenience evaluator verify a TrustPack relative to the root embedded in the supplied pack; they do **not** establish that root as trusted. Do not pass model- or worker-selected TrustPack bytes to those raw functions. Bootstrap requires an out-of-band checkpoint, and updates must be verified as successors of the installed pack.
+
+The raw kernel evaluation functions remain public in this preview for low-level compatibility. This patch adds a pinned handle, explicit API warnings and adversarial tests, but does not remove every unsafe-to-misuse entry point. Auditing/gating those APIs, production identity and signing-key custody, broker enforcement, and worker isolation remain separate hardening requirements.
+
 Natural language, model output, classifier scores, observability findings and risk heuristics may inform a request.
 
 They are **not capabilities** and they are **not authorization decisions**.
