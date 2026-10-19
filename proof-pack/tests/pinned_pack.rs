@@ -30,13 +30,15 @@ fn pinned_handle_rejects_attacker_pack_under_the_legitimate_checkpoint(
         PinnedTrustPack::verify_initial(&attacker.pack_bytes, &pin, EVALUATION_TIME).err(),
         Some(TrustError::CheckpointMismatch)
     );
-    assert!(InstalledTrustContext::install_at(&attacker.pack_bytes, &pin, EVALUATION_TIME).is_err());
+    assert!(
+        InstalledTrustContext::install_at(&attacker.pack_bytes, &pin, EVALUATION_TIME).is_err()
+    );
     Ok(())
 }
 
 #[test]
-fn pinned_handle_allows_legitimate_claim_and_rejects_attacker_claim(
-) -> Result<(), Box<dyn Error>> {
+fn pinned_handle_allows_legitimate_claim_and_rejects_attacker_claim() -> Result<(), Box<dyn Error>>
+{
     let legitimate = fixture()?;
     let attacker = fixture_with_keys_at(EVALUATION_TIME, ATTACKER_CLAIM_KEY, ATTACKER_PACK_KEY)?;
     let pin = legitimate.signed_pack.checkpoint()?;
@@ -47,7 +49,9 @@ fn pinned_handle_allows_legitimate_claim_and_rejects_attacker_claim(
 
     // Same issuer/key identifiers and policy shape, but signed by the attacker's key.
     assert_eq!(
-        pinned.evaluate_claim(&attacker.claim_bytes, EVALUATION_TIME).err(),
+        pinned
+            .evaluate_claim(&attacker.claim_bytes, EVALUATION_TIME)
+            .err(),
         Some(TrustError::InvalidSignature)
     );
     Ok(())
