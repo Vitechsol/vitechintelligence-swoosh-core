@@ -87,8 +87,17 @@ pub fn fixture() -> Result<Fixture, ProofError> {
 }
 
 pub fn fixture_at(evaluation_time: u64) -> Result<Fixture, ProofError> {
-    let claim_key = SigningKey::from_bytes(&CLAIM_KEY_BYTES);
-    let pack_key = SigningKey::from_bytes(&PACK_KEY_BYTES);
+    fixture_with_keys_at(evaluation_time, CLAIM_KEY_BYTES, PACK_KEY_BYTES)
+}
+
+/// Same fixture shape signed by caller-chosen keys; models an attacker-built TrustPack.
+pub fn fixture_with_keys_at(
+    evaluation_time: u64,
+    claim_key_bytes: [u8; 32],
+    pack_key_bytes: [u8; 32],
+) -> Result<Fixture, ProofError> {
+    let claim_key = SigningKey::from_bytes(&claim_key_bytes);
+    let pack_key = SigningKey::from_bytes(&pack_key_bytes);
     let trust_domain = TrustDomainId::new("industrial.demo");
     let issuer_id = IssuerId::new("employer-a");
     let claim_key_id = KeyId::new("claim-key-1");
