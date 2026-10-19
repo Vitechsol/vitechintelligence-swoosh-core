@@ -39,6 +39,12 @@ pub fn scoped_revocation_id(
     crate::ClaimId::new(value)
 }
 
+/// # Security: integrity only, not authority
+///
+/// This function verifies the TrustPack against the root embedded in `trust_pack_bytes`, so a
+/// self-consistent pack built by an attacker can be accepted. It is safe only when the caller
+/// has already bound these bytes to an externally pinned checkpoint. Prefer
+/// [`crate::PinnedTrustPack`], which cannot be constructed without that pin.
 pub fn evaluate_claim(
     claim_bytes: &[u8],
     trust_pack_bytes: &[u8],
