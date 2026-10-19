@@ -7,6 +7,7 @@ mod action;
 mod canonical;
 mod error;
 mod kernel;
+mod pinned;
 mod state;
 mod types;
 
@@ -18,6 +19,7 @@ pub use action::{
 };
 pub use error::{IdentifierField, InputKind, TrustError};
 pub use kernel::{encode_claim, evaluate_claim, scoped_revocation_id};
+pub use pinned::PinnedTrustPack;
 pub use state::{
     encode_trust_pack, inspect_trust_pack, verify_initial_trust_pack, verify_trust_pack_transition,
     MAX_CLAIM_WIRE_BYTES, MAX_TRUST_PACK_WIRE_BYTES,

@@ -111,10 +111,16 @@ impl From<TrustError> for SdkError {
     }
 }
 
-/// Evaluates raw canonical claim and TrustPack buffers using the host's current Unix clock.
+/// Legacy unpinned raw evaluation using the host's current Unix clock.
 ///
-/// The SDK intentionally forwards the borrowed buffers to the canonical kernel. It does not
-/// reproduce parsing, cryptographic verification, freshness, revocation, or policy semantics.
+/// **Security warning:** this verifies the supplied TrustPack against its own embedded root; an
+/// attacker-controlled self-signed pack may be accepted. Use `InstalledTrustContext` with an
+/// out-of-band checkpoint for application authorization.
+///
+/// The SDK forwards borrowed buffers to the canonical kernel; it does not add a trust-root pin.
+#[deprecated(
+    note = "unpinned: use InstalledTrustContext::install_at with an out-of-band checkpoint"
+)]
 pub fn evaluate_claim(claim_bytes: &[u8], trust_pack: &[u8]) -> Result<DecisionReceipt, SdkError> {
     let evaluation_time = unix_time_now()?;
     trust_kernel::evaluate_claim(claim_bytes, trust_pack, evaluation_time).map_err(Into::into)

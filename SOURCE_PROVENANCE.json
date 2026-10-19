@@ -65,7 +65,7 @@
     },
     {
       "path": "docs/security/THREAT_MODEL.md",
-      "cleanBlobSha": "8887ce58223f243353321a30a09f7dfa5f0222ce",
+      "cleanBlobSha": "bda2d7d61148f82c816ab5d82bf310dedb71d292",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "docs/security/THREAT_MODEL.md",
@@ -123,7 +123,7 @@
     },
     {
       "path": "proof-pack/src/lib.rs",
-      "cleanBlobSha": "04822c602b9c1884aabe9a69f8ea4ee962ceb580",
+      "cleanBlobSha": "ff9ec649ff9512b3c1cb7b2a6ed02c71584492f9",
       "extraction": "exact",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "proof-pack/src/lib.rs",
@@ -392,7 +392,7 @@
     },
     {
       "path": "trust-kernel/src/action.rs",
-      "cleanBlobSha": "d1d55a70ad38312c7865011532c714535dd7e803",
+      "cleanBlobSha": "0214131d2819eba8c42aab629eed0b3d163e5aed",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-kernel/src/action.rs",
@@ -420,7 +420,7 @@
     },
     {
       "path": "trust-kernel/src/kernel.rs",
-      "cleanBlobSha": "ffc451bdf6159f2156bd72643bd73f1f6d529793",
+      "cleanBlobSha": "25547b04deba735b95f9342975f93a53e92449c5",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-kernel/src/kernel.rs",
@@ -430,7 +430,7 @@
     },
     {
       "path": "trust-kernel/src/lib.rs",
-      "cleanBlobSha": "eaff6484b62e8a47eab632b6b66d80f6d6a7fdac",
+      "cleanBlobSha": "6837887c8e3e2cde6313ee61a5f45cc392f8fc12",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-kernel/src/lib.rs",
@@ -469,7 +469,7 @@
     },
     {
       "path": "trust-sdk/src/lib.rs",
-      "cleanBlobSha": "0c5bfea93d4d9711317c4eaedaa5375e010a55a5",
+      "cleanBlobSha": "c33103a1450ac46d750463ad2628bb7d0efefa62",
       "extraction": "modified",
       "sourceRepository": "vitechintelligence/swooshbyvitech",
       "sourcePath": "trust-sdk/src/lib.rs",
@@ -505,7 +505,9 @@
     "proof-pack/tests/action_v3.rs",
     "scripts/check-license-coverage.py",
     "scripts/generate_sbom.py",
-    "scripts/verify-native-conformance-tools.py"
+    "scripts/verify-native-conformance-tools.py",
+    "trust-kernel/src/pinned.rs",
+    "proof-pack/tests/pinned_pack.rs"
   ],
   "packageMetadataNote": "Rust crates remain publish=false for the preview. Package manifests now advertise MPL-2.0; the protocol Python package advertises Apache-2.0.",
   "migrationNote": "Release repository ownership moved to the Vitechsol organization. Historical sourceRepository entries intentionally retain their original repository identities for provenance.",

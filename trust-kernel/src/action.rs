@@ -191,6 +191,12 @@ pub fn encode_action_v2(action: &SignedActionV2) -> Result<Vec<u8>, ActionError>
     Ok(bytes)
 }
 
+/// # Security: integrity only, not authority
+///
+/// This function verifies the TrustPack against the root embedded in `pack`, so a
+/// self-consistent pack built by an attacker can be accepted. It is safe only when the caller
+/// has already bound these bytes to an externally pinned checkpoint. Prefer
+/// [`crate::PinnedTrustPack`], which cannot be constructed without that pin.
 pub fn evaluate_action_v2(
     bytes: &[u8],
     pack: &[u8],
@@ -250,6 +256,12 @@ pub fn encode_action_v3(action: &SignedActionV3) -> Result<Vec<u8>, ActionError>
     Ok(bytes)
 }
 
+/// # Security: integrity only, not authority
+///
+/// This function verifies the TrustPack against the root embedded in `pack`, so a
+/// self-consistent pack built by an attacker can be accepted. It is safe only when the caller
+/// has already bound these bytes to an externally pinned checkpoint. Prefer
+/// [`crate::PinnedTrustPack`], which cannot be constructed without that pin.
 pub fn evaluate_action_v3(
     bytes: &[u8],
     pack: &[u8],
